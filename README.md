@@ -43,6 +43,35 @@ The database was created in three steps:
 
 * **Mitochondrial chromosome :** Mt.vs_AGPv5.fasta.gz
 
+### Running sortMeRNA
+
+*  **Manual**
+  
+https://sortmerna.readthedocs.io/en/latest/manual4.0.html
+
+
+*  **Usage**
+  
+```
+sortmerna --threads 16 --out2 True --zip-out Yes --fastx true --blast '1 cigar qcov qstrand' --paired_in true \
+-ref sortMeRNA.B73_AGPv5.db/ChlMt_db/Mt.vs_AGPv5.fasta \
+-ref sortMeRNA.B73_AGPv5.db/ChlMt_db/Chl.vs_AGPv5.fasta \
+-ref sortMeRNA.B73_AGPv5.db/tRNAs_db/tRNAs.vs_AGPv5.merged.fasta \
+-ref sortMeRNA.B73_AGPv5.db/rRNA_db/annotation_vs_AGPv5/5.8S.Zea_Mays_vs_AGPv5.querysize.above_90.merged.fasta \
+-ref sortMeRNA.B73_AGPv5.db/rRNA.Zm-B73-REFERENCE-NAM-5.0_genomic.with_scaffolds.ITS.fasta \
+-ref sortMeRNA.B73_AGPv5.db/18S.Zea_Mays_vs_AGPv5.querysize.above_90.merged.fasta \
+-ref sortMeRNA.B73_AGPv5.db/28S.Zea_Mays_vs_AGPv5.querysize.above_90.merged.fasta \
+-ref sortMeRNA.B73_AGPv5.db/5S.Zea_Mays_vs_AGPv5.querysize.above_90.merged.fasta \
+-ref sortMeRNA.B73_AGPv5.db/SRP_db/SRP.Zea_Mays_vs_AGPv5.querysize.above_90.merged.fasta \
+-reads $SAMPLE.R1.fastq \
+-reads $SAMPLE.R2.fastq \
+--idx-dir sortMeRNA.B73_AGPv5.db/sortmerna.idx-dir \
+--workdir output_sortMeRNA.$SAMPLE \
+--kvdb    output_sortMeRNA.$SAMPLE/kvdb \
+--readb   output_sortMeRNA.$SAMPLE/readb \
+--other   output_sortMeRNA.$SAMPLE/clean_$SAMPLE.fastq
+```
+
 ### References
 <sub> - O'Neil D, Glowatz H, Schlumpberger M. Ribosomal RNA depletion for efficient use of RNA-seq capacity. Curr Protoc Mol Biol. 2013 Jul;Chapter 4:Unit 4.19. doi: 10.1002/0471142727.mb0419s103. PMID: 23821444.</sub> 
 
