@@ -15,16 +15,34 @@ Plant ribodepletion kits are commercially available, but, in our hands, none ach
 
 To integrate the physical separation of rDNA before sequencing and further improve the detection of low-abundance transcripts, we used the software SortMeRNA (Kopylova et al., 2012) to implement a post-sequencing filtration strategy to delete the short reads matching contaminant sequences from samples of our interest, derived from root tips of Zea mays cv. B73. 
 
-To this aim, we assembled a database of the most frequent contaminants, including all nuclear ribosomal subunits (5S, 5.8S, 18S, 28S), the internal transcribed spacer (ITS) region, chloroplast and mitochondrial rRNAs, tRNAs, and the signal recognition particle (7SL/SRP).
+To this aim, we assembled a database of the most frequent contaminants, including all nuclear ribosomal subunits (5S, 5.8S, 18S, 28S), the internal transcribed spacer (ITS) region, chloroplast and mitochondrial rRNAs, tRNAs, and the signal recognition particle (7SL/SRP). The database was used in to remove contaminants using the tool SortMeRNA https://github.com/sortmerna/sortmerna.
 
-### Pipeline description
+### Pipeline outline
 The database was created in three steps: 
 * First, we obtained known sequences of the chosen contaminants from public repositories. 
 * Second, to ensure specificity, we used them as queries to search the maize cv. B73 genome, to identify similar but non-identical sequences possibly present in the assembly. 
 * Third, we tested the database against RNA-Seq data from maize cv. B73. We then explored the possibility of using the same database on other samples, running the same analysis on a different maize cultivar, NC350, and on a relative species, sorghum. 
 
-Below we describe the pipeline used and make the contaminant database available to the community. 
-    
+### Sequence Files 
+
+* **18S rRNA subunit :** 18S.Zea_Mays_vs_AGPv5.querysize.above_90.merged.fasta.gz
+
+* **28S rRNA subunit :** 28S.Zea_Mays_vs_AGPv5.querysize.above_90.merged.fasta.gz
+
+* **5.S rRNA subunit :** 5.8S.Zea_Mays_vs_AGPv5.querysize.above_90.merged.fasta.gz
+
+* **5S rRNA subunit :** 5S.Zea_Mays_vs_AGPv5.querysize.above_90.merged.fasta.gz
+
+* **Internal transcribed spacer (ITS) :** rRNA.Zm-B73-REFERENCE-NAM-5.0_genomic.with_scaffolds.ITS.fasta.gz
+
+* **Signal recognition particle RNA (SRP) :** SRP.Zea_Mays_vs_AGPv5.querysize.above_90.merged.fasta.gz
+
+* **Transfer RNAs (tRNA) :** tRNAs.vs_AGPv5.merged.fasta.gz
+
+* **Plastid chromosome :** Chl.vs_AGPv5.fasta.gz
+
+* **Mitochondrial chromosome :** Mt.vs_AGPv5.fasta.gz
+
 ### References
 <sub> - O'Neil D, Glowatz H, Schlumpberger M. Ribosomal RNA depletion for efficient use of RNA-seq capacity. Curr Protoc Mol Biol. 2013 Jul;Chapter 4:Unit 4.19. doi: 10.1002/0471142727.mb0419s103. PMID: 23821444.</sub> 
 
