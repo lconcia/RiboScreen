@@ -2,7 +2,7 @@
 
 RiboScreen is a database of maize RNA-Seq contaminants
 
-### Background
+## Background
 
 Ribosomal RNA (rRNA) is the most abundant RNA species in the cell, accounting for approximately 90% of total RNA. Removing the rRNA fraction before the construction of RNA-Seq libraries is a critical step to enhance the detection of the remaining, most informative 10% of the transcriptome (O’Neil et al. 2013).
 
@@ -10,22 +10,22 @@ The conventional method to overcome this issue is to selectively target the poly
 
 An alternative approach, ribodepletion, typically removes the rRNA by oligo-hybridization methods, that allows reverse transcription with random primers, producing a more uniform coverage, and, more importantly, enables the detection of ncRNAs. However, ribodepletion requires species-specific oligonucleotides, that are commonly designed to complement mammalian ribosomal subunits. Universal ribodepletion oligonucleotides do not exist for plant and fungal RNA samples so that, for each different species, custom oligonucleotides need to be designed and validated. 
 
-### The Problem
+## The Problem
 Plant ribodepletion kits are commercially available, but, in our hands, none achieves the full elimination of all rRNAs.
 
 To integrate the physical separation of rDNA before sequencing and further improve the detection of low-abundance transcripts, we used the software SortMeRNA (Kopylova et al., 2012) to implement a post-sequencing filtration strategy to delete the short reads matching contaminant sequences from samples of our interest, derived from root tips of Zea mays cv. B73. 
 
 To this aim, we assembled a database of the most frequent contaminants, including all nuclear ribosomal subunits (5S, 5.8S, 18S, 28S), the internal transcribed spacer (ITS) region, chloroplast and mitochondrial rRNAs, tRNAs, and the signal recognition particle (7SL/SRP). The database was used in to remove contaminants using the tool SortMeRNA https://github.com/sortmerna/sortmerna.
 
-### Pipeline outline
+## Pipeline outline
 
 1) we obtained known sequences of the chosen contaminants from public repositories. 
 2) To ensure specificity, we used them as queries to search the maize cv. B73 genome, to identify similar but non-identical sequences possibly present in the assembly. 
 3) We tested the database against RNA-Seq data from maize cv. B73. We then explored the possibility of using the same database on other samples, running the same analysis on a different maize cultivar, NC350, and on a relative species, sorghum. 
 
-### Pipeline description
+## Pipeline description
 
-1a) Retrieve the sequences
+#### 1a) Sequences sources
 
 | Sequence group | Source |
 | ------------- | ------------- |
@@ -37,9 +37,19 @@ To this aim, we assembled a database of the most frequent contaminants, includin
 | rRNA Internal transcribed spacer (ITS)  | from genomic coordinates of rRNA subunits |
 | rRNA intergenic spacer | from genomic coordinates of rRNA subunits |
 
+#### 1a) Sequences formatting
 
+* Chloroplast: as retrieved   
+* Mitochondrion: as retrieved
+* SRP:  as retrieved
+*   | NCBI annotation https://www.ncbi.nlm.nih.gov/nuccore/NC_007982.1  |
+| SRP  | https://rth.dk/resources/rnp/SRPDB/rna/sequences/srprna_seqs.zip  |
+| tRNAs  | https://bioinformatics.um6p.ma/PltRNAdb/data/download/Zea_mays.Nuclear.fa.gz  |
+| rRNA | NCBI annotation https://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/902/167/145/GCF_902167145.1_Zm-B73-REFERENCE-NAM-5.0/GCF_902167145.1_Zm-B73-REFERENCE-NAM-5.0_genomic.gff.gz  |
+| rRNA Internal transcribed spacer (ITS)  | from genomic coordinates of rRNA subunits |
+| rRNA intergenic spacer | from genomic coordinates of rRNA subunits |
 
-### Sequence Files 
+## Sequence Files 
 
 * **18S rRNA subunit :** 18S.Zea_Mays_vs_AGPv5.querysize.above_90.merged.fasta.gz
 
@@ -59,7 +69,7 @@ To this aim, we assembled a database of the most frequent contaminants, includin
 
 * **Mitochondrial chromosome :** Mt.vs_AGPv5.fasta.gz
 
-### Running sortMeRNA
+## Running sortMeRNA
 
 *  **Manual**
   
