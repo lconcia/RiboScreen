@@ -19,15 +19,25 @@ To this aim, we assembled a database of the most frequent contaminants, includin
 
 ### Pipeline outline
 
-| Sequences  | Source |
+1) we obtained known sequences of the chosen contaminants from public repositories. 
+2) To ensure specificity, we used them as queries to search the maize cv. B73 genome, to identify similar but non-identical sequences possibly present in the assembly. 
+3) We tested the database against RNA-Seq data from maize cv. B73. We then explored the possibility of using the same database on other samples, running the same analysis on a different maize cultivar, NC350, and on a relative species, sorghum. 
+
+### Pipeline description
+
+1a) Retrieve the sequences
+
+| Sequence group | Source |
 | ------------- | ------------- |
-| Chloroplast  | https://www.ncbi.nlm.nih.gov/nuccore/NC_001666.2  |
-| Mitochondrion  | https://www.ncbi.nlm.nih.gov/nuccore/NC_007982.1  |
+| Chloroplast  | NCBI annotation     https://www.ncbi.nlm.nih.gov/nuccore/NC_001666.2  |
+| Mitochondrion  | NCBI annotation https://www.ncbi.nlm.nih.gov/nuccore/NC_007982.1  |
 | SRP  | https://rth.dk/resources/rnp/SRPDB/rna/sequences/srprna_seqs.zip  |
+| tRNAs  | https://bioinformatics.um6p.ma/PltRNAdb/data/download/Zea_mays.Nuclear.fa.gz  |
+| rRNA | NCBI annotation https://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/902/167/145/GCF_902167145.1_Zm-B73-REFERENCE-NAM-5.0/GCF_902167145.1_Zm-B73-REFERENCE-NAM-5.0_genomic.gff.gz  |
+| rRNA Internal transcribed spacer (ITS)  | from genomic coordinates of rRNA subunits |
+| rRNA intergenic spacer | from genomic coordinates of rRNA subunits |
 
 
-3) To ensure specificity, we used them as queries to search the maize cv. B73 genome, to identify similar but non-identical sequences possibly present in the assembly. 
-4) We tested the database against RNA-Seq data from maize cv. B73. We then explored the possibility of using the same database on other samples, running the same analysis on a different maize cultivar, NC350, and on a relative species, sorghum. 
 
 ### Sequence Files 
 
