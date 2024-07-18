@@ -18,11 +18,14 @@ To integrate the physical separation of rDNA before sequencing and further impro
 To this aim, we assembled a database of the most frequent contaminants, including all nuclear ribosomal subunits (5S, 5.8S, 18S, 28S), the internal transcribed spacer (ITS) region, chloroplast and mitochondrial rRNAs, tRNAs, and the signal recognition particle (7SL/SRP). The database was used in to remove contaminants using the tool SortMeRNA https://github.com/sortmerna/sortmerna.
 
 ### Pipeline outline
-The database was created in three steps: 
-1) We obtained known sequences of the chosen contaminants from public repositories.
- -    Chloroplast chromosome            https://www.ncbi.nlm.nih.gov/nuccore/NC_001666.2
- -    Mitochondrion chromosome          https://www.ncbi.nlm.nih.gov/nuccore/NC_007982.1
-    
+
+| Sequences  | Source |
+| ------------- | ------------- |
+| Chloroplast  | https://www.ncbi.nlm.nih.gov/nuccore/NC_001666.2  |
+| Mitochondrion  | https://www.ncbi.nlm.nih.gov/nuccore/NC_007982.1  |
+| SRP  | https://rth.dk/resources/rnp/SRPDB/rna/sequences/srprna_seqs.zip  |
+
+
 3) To ensure specificity, we used them as queries to search the maize cv. B73 genome, to identify similar but non-identical sequences possibly present in the assembly. 
 4) We tested the database against RNA-Seq data from maize cv. B73. We then explored the possibility of using the same database on other samples, running the same analysis on a different maize cultivar, NC350, and on a relative species, sorghum. 
 
