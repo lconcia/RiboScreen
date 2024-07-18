@@ -19,9 +19,12 @@ To this aim, we assembled a database of the most frequent contaminants, includin
 
 ### Pipeline outline
 The database was created in three steps: 
-* First, we obtained known sequences of the chosen contaminants from public repositories. 
-* Second, to ensure specificity, we used them as queries to search the maize cv. B73 genome, to identify similar but non-identical sequences possibly present in the assembly. 
-* Third, we tested the database against RNA-Seq data from maize cv. B73. We then explored the possibility of using the same database on other samples, running the same analysis on a different maize cultivar, NC350, and on a relative species, sorghum. 
+1) We obtained known sequences of the chosen contaminants from public repositories.
+ -    Chloroplast chromosome            https://www.ncbi.nlm.nih.gov/nuccore/NC_001666.2
+ -    Mitochondrion chromosome          https://www.ncbi.nlm.nih.gov/nuccore/NC_007982.1
+    
+3) To ensure specificity, we used them as queries to search the maize cv. B73 genome, to identify similar but non-identical sequences possibly present in the assembly. 
+4) We tested the database against RNA-Seq data from maize cv. B73. We then explored the possibility of using the same database on other samples, running the same analysis on a different maize cultivar, NC350, and on a relative species, sorghum. 
 
 ### Sequence Files 
 
