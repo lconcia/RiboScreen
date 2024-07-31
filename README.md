@@ -19,9 +19,39 @@ To this aim, we assembled a database of the most frequent contaminants, includin
 
 ## Pipeline outline
 
-1) we obtained known sequences of the chosen contaminants from public repositories. 
-2) To ensure specificity, we used them as queries to search the maize cv. B73 genome, to identify similar but non-identical sequences possibly present in the assembly. 
-3) We tested the database against RNA-Seq data from maize cv. B73. We then explored the possibility of using the same database on other samples, running the same analysis on a different maize cultivar, NC350, and on a relative species, sorghum. 
+### 1) Sequences sources
+We obtained known sequences of the chosen contaminants from public repositories. 
+| Sequence group | Source |
+| ------------- | -------------- |
+| rRNA (28S, 18S, 5.8S, and 5S subunits) | retrieved from NCBI annotation. See [rRNA_retrieval.md](https://github.com/lconcia/RiboScreen/blob/main/rRNA_retrieval.md) |
+| rRNA Internal transcribed spacer (ITS) | retrieved from NCBI annotation. See [rRNA_retrieval.md](https://github.com/lconcia/RiboScreen/blob/main/rRNA_retrieval.md)  |
+| Signal recognition particle (SRP) | https://rth.dk/resources/rnp/SRPDB/rna/sequences/srprna_seqs.zip  |
+| tRNAs  | https://bioinformatics.um6p.ma/PltRNAdb/data/download/Zea_mays.Nuclear.fa.gz  |
+| Plastid genome | https://www.ncbi.nlm.nih.gov/nuccore/NC_001666.2  |
+| Mitochondrial genome | https://www.ncbi.nlm.nih.gov/nuccore/NC_007982.1  |
+
+### 2) BLAST Sequences over maize AGPv5 genome assembly
+To ensure specificity, we used them as queries to search the maize cv. B73 genome, to identify similar but non-identical sequences present in the assembly. 
+### 3) formatting of BLAST output
+See BLAST_output_formatting.md
+* **28S rRNA subunit :** 28S.Zea_Mays_vs_AGPv5.querysize.above_90.merged.fasta.gz
+* **18S rRNA subunit :** 18S.Zea_Mays_vs_AGPv5.querysize.above_90.merged.fasta.gz
+* **5.8S rRNA subunit :** 5.8S.Zea_Mays_vs_AGPv5.querysize.above_90.merged.fasta.gz
+* **5S rRNA subunit :** 5S.Zea_Mays_vs_AGPv5.querysize.above_90.merged.fasta.gz
+* **Internal transcribed spacer (ITS) :** rRNA.Zm-B73-REFERENCE-NAM-5.0_genomic.with_scaffolds.ITS.fasta.gz
+* **Signal recognition particle (SRP) :** SRP.Zea_Mays_vs_AGPv5.querysize.above_90.merged.fasta.gz
+* **Transfer RNAs (tRNA) :** tRNAs.vs_AGPv5.merged.fasta.gz
+* **Plastid chromosome :** Chl.vs_AGPv5.fasta.gz
+* **Mitochondrial chromosome :** Mt.vs_AGPv5.fasta.gz
+### 4) Use the sequences to identify contaminant with sortMeRNA  
+We tested the database against RNA-Seq data from maize cv. B73. We then explored the possibility of using the same database on other samples, running the same analysis on a different maize cultivar, NC350, and on a relative species, sorghum. 
+
+
+
+
+
+
+
 
 ## Pipeline description
 
@@ -51,23 +81,7 @@ To this aim, we assembled a database of the most frequent contaminants, includin
 
 ## Sequence Files 
 
-* **18S rRNA subunit :** 18S.Zea_Mays_vs_AGPv5.querysize.above_90.merged.fasta.gz
 
-* **28S rRNA subunit :** 28S.Zea_Mays_vs_AGPv5.querysize.above_90.merged.fasta.gz
-
-* **5.S rRNA subunit :** 5.8S.Zea_Mays_vs_AGPv5.querysize.above_90.merged.fasta.gz
-
-* **5S rRNA subunit :** 5S.Zea_Mays_vs_AGPv5.querysize.above_90.merged.fasta.gz
-
-* **Internal transcribed spacer (ITS) :** rRNA.Zm-B73-REFERENCE-NAM-5.0_genomic.with_scaffolds.ITS.fasta.gz
-
-* **Signal recognition particle RNA (SRP) :** SRP.Zea_Mays_vs_AGPv5.querysize.above_90.merged.fasta.gz
-
-* **Transfer RNAs (tRNA) :** tRNAs.vs_AGPv5.merged.fasta.gz
-
-* **Plastid chromosome :** Chl.vs_AGPv5.fasta.gz
-
-* **Mitochondrial chromosome :** Mt.vs_AGPv5.fasta.gz
 
  
 
