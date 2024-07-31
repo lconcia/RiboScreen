@@ -30,9 +30,9 @@ We obtained known sequences of the chosen contaminants from public repositories.
 | Plastid genome | https://www.ncbi.nlm.nih.gov/nuccore/NC_001666.2  |
 | Mitochondrial genome | https://www.ncbi.nlm.nih.gov/nuccore/NC_007982.1  |
 
-### 2) BLAST Sequences over maize AGPv5 genome assembly
+### 2) BLAST sequences over maize AGPv5 genome assembly
 To ensure specificity, we used them as queries to search the maize cv. B73 genome, to identify similar but non-identical sequences present in the assembly. 
-### 3) BLAST output formatting
+### 3) BLAST output filtering and formatting
 See BLAST_output_formatting.md
 * **28S rRNA subunit :** 28S.Zea_Mays_vs_AGPv5.querysize.above_90.merged.fasta.gz
 * **18S rRNA subunit :** 18S.Zea_Mays_vs_AGPv5.querysize.above_90.merged.fasta.gz
