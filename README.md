@@ -33,9 +33,9 @@ To this aim, we assembled a database of the most frequent contaminants, includin
 | Mitochondrion  | NCBI annotation https://www.ncbi.nlm.nih.gov/nuccore/NC_007982.1  |
 | SRP  | https://rth.dk/resources/rnp/SRPDB/rna/sequences/srprna_seqs.zip  |
 | tRNAs  | https://bioinformatics.um6p.ma/PltRNAdb/data/download/Zea_mays.Nuclear.fa.gz  |
-| rRNA | from genomic coordinates of rRNA subunits |
-|  rRNA Internal transcribed spacer (ITS) | from genomic coordinates of rRNA subunits |
-| rRNA intergenic spacer | from genomic coordinates of rRNA subunits |
+| rRNA subunits | identified from annotation |
+| rRNA Internal transcribed spacer (ITS) | identified from annotated rRNA |
+| rRNA intergenic spacer | identified from annotated rRNA |
 
 #### 2) Sequences formatting
 
