@@ -32,7 +32,7 @@ We obtained known sequences of the chosen contaminants from public repositories.
 
 ### 2) BLAST Sequences over maize AGPv5 genome assembly
 To ensure specificity, we used them as queries to search the maize cv. B73 genome, to identify similar but non-identical sequences present in the assembly. 
-### 3) formatting of BLAST output
+### 3) BLAST output formatting
 See BLAST_output_formatting.md
 * **28S rRNA subunit :** 28S.Zea_Mays_vs_AGPv5.querysize.above_90.merged.fasta.gz
 * **18S rRNA subunit :** 18S.Zea_Mays_vs_AGPv5.querysize.above_90.merged.fasta.gz
@@ -45,49 +45,6 @@ See BLAST_output_formatting.md
 * **Mitochondrial chromosome :** Mt.vs_AGPv5.fasta.gz
 ### 4) Use the sequences to identify contaminant with sortMeRNA  
 We tested the database against RNA-Seq data from maize cv. B73. We then explored the possibility of using the same database on other samples, running the same analysis on a different maize cultivar, NC350, and on a relative species, sorghum. 
-
-
-
-
-
-
-
-
-## Pipeline description
-
-#### 1a) Sequences sources
-
-| Sequence group | Source |
-| ------------- | -------------- |
-| Chloroplast  | https://www.ncbi.nlm.nih.gov/nuccore/NC_001666.2  |
-| Mitochondrion  | https://www.ncbi.nlm.nih.gov/nuccore/NC_007982.1  |
-| SRP  | https://rth.dk/resources/rnp/SRPDB/rna/sequences/srprna_seqs.zip  |
-| tRNAs  | https://bioinformatics.um6p.ma/PltRNAdb/data/download/Zea_mays.Nuclear.fa.gz  |
-| rRNA subunits | retrieved from annotation. See [rRNA_retrieval.md](https://github.com/lconcia/RiboScreen/blob/main/rRNA_retrieval.md) |
-| rRNA Internal transcribed spacer (ITS) | retrieved from annotation. See [rRNA_retrieval.md](https://github.com/lconcia/RiboScreen/blob/main/rRNA_retrieval.md)  |
-| rRNA intergenic spacer | retrieved from annotation. See [rRNA_retrieval.md](https://github.com/lconcia/RiboScreen/blob/main/rRNA_retrieval.md)  |
-
-#### 2) Sequences formatting
-
-* Chloroplast: as retrieved   
-* Mitochondrion: as retrieved
-* SRP:  as retrieved
-* tRNAs: as retrieved  
-* rRNA, Internal transcribed spacer (ITS), and rRNA intergenic spacer : extract from genome assembly using NCBI annotation of rRNA subunits
-
-#### 3) BLAST Sequences over maize AGPv5 genome assembly
-
-
-
-## Sequence Files 
-
-
-
- 
-
-
-
-#### 3) Use the sequences to identify contaminant with sortMeRNA  
 
 *  **Manual**
   
@@ -119,3 +76,4 @@ sortmerna --threads 16 --out2 True --zip-out Yes --fastx true --blast '1 cigar q
 <sub> - O'Neil D, Glowatz H, Schlumpberger M. Ribosomal RNA depletion for efficient use of RNA-seq capacity. Curr Protoc Mol Biol. 2013 Jul;Chapter 4:Unit 4.19. doi: 10.1002/0471142727.mb0419s103. PMID: 23821444.</sub> 
 
 <sub> - Barrett A, McWhirter R, Taylor SR, Weinreb A, Miller DM, Hammarlund M. A head-to-head comparison of ribodepletion and polyA selection approaches for Caenorhabditis elegans low input RNA-sequencing libraries. G3 (Bethesda). 2021 Jul 14;11(7):jkab121. doi: 10.1093/g3journal/jkab121. PMID: 33856427; PMCID: PMC8495925.</sub> 
+ 
