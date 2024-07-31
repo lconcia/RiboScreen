@@ -28,26 +28,26 @@ To this aim, we assembled a database of the most frequent contaminants, includin
 #### 1a) Sequences sources
 
 | Sequence group | Source |
-| ------------- | ------------- |
+| ------------- | -------------- |
 | Chloroplast  | NCBI annotation     https://www.ncbi.nlm.nih.gov/nuccore/NC_001666.2  |
 | Mitochondrion  | NCBI annotation https://www.ncbi.nlm.nih.gov/nuccore/NC_007982.1  |
 | SRP  | https://rth.dk/resources/rnp/SRPDB/rna/sequences/srprna_seqs.zip  |
 | tRNAs  | https://bioinformatics.um6p.ma/PltRNAdb/data/download/Zea_mays.Nuclear.fa.gz  |
-| rRNA | NCBI annotation https://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/902/167/145/GCF_902167145.1_Zm-B73-REFERENCE-NAM-5.0/GCF_902167145.1_Zm-B73-REFERENCE-NAM-5.0_genomic.gff.gz  |
-| rRNA Internal transcribed spacer (ITS)  | from genomic coordinates of rRNA subunits |
+| rRNA | from genomic coordinates of rRNA subunits |
+|  rRNA Internal transcribed spacer (ITS) | from genomic coordinates of rRNA subunits |
 | rRNA intergenic spacer | from genomic coordinates of rRNA subunits |
 
-#### 1a) Sequences formatting
+#### 2) Sequences formatting
 
 * Chloroplast: as retrieved   
 * Mitochondrion: as retrieved
 * SRP:  as retrieved
-*   | NCBI annotation https://www.ncbi.nlm.nih.gov/nuccore/NC_007982.1  |
-| SRP  | https://rth.dk/resources/rnp/SRPDB/rna/sequences/srprna_seqs.zip  |
-| tRNAs  | https://bioinformatics.um6p.ma/PltRNAdb/data/download/Zea_mays.Nuclear.fa.gz  |
-| rRNA | NCBI annotation https://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/902/167/145/GCF_902167145.1_Zm-B73-REFERENCE-NAM-5.0/GCF_902167145.1_Zm-B73-REFERENCE-NAM-5.0_genomic.gff.gz  |
-| rRNA Internal transcribed spacer (ITS)  | from genomic coordinates of rRNA subunits |
-| rRNA intergenic spacer | from genomic coordinates of rRNA subunits |
+* tRNAs: as retrieved  
+* rRNA, Internal transcribed spacer (ITS), and rRNA intergenic spacer : extract from genome assembly using NCBI annotation of rRNA subunits
+
+#### 3) BLAST Sequences over maize AGPv5 genome assembly
+
+
 
 ## Sequence Files 
 
@@ -69,12 +69,15 @@ To this aim, we assembled a database of the most frequent contaminants, includin
 
 * **Mitochondrial chromosome :** Mt.vs_AGPv5.fasta.gz
 
-## Running sortMeRNA
+ 
+
+
+
+#### 3) Use the sequences to identify contaminant with sortMeRNA  
 
 *  **Manual**
   
 https://sortmerna.readthedocs.io/en/latest/manual4.0.html
-
 
 *  **Usage**
   
