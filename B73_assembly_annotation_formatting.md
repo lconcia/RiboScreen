@@ -43,7 +43,7 @@ $ grep ">" GCF_902167145.1_Zm-B73-REFERENCE-NAM-5.0_genomic.fasta
                   else if ($1 ~ /NW_/) print $1"-"substr($10, 1, length($10)-1);
                        else print;
        }' GCF_902167145.1_Zm-B73-REFERENCE-NAM-5.0_genomic.fasta > \
-Zm-B73-REFERENCE-NAM-5.0_genomic.with_scaffolds.fasta
+           Zm-B73-REFERENCE-NAM-5.0_genomic.with_scaffolds.fasta
 ```
 
 #### 4) Verify the new chromosome names 
@@ -52,3 +52,23 @@ Zm-B73-REFERENCE-NAM-5.0_genomic.with_scaffolds.fasta
 $ grep ">" Zm-B73-REFERENCE-NAM-5.0_genomic.with_scaffolds.fasta
 ```
 ```bash
+>chr1
+>chr2
+>chr3
+>chr4
+>chr5
+>chr6
+>chr7
+>chr8
+>chr9
+>chr10
+>NW_023366717.1-scaffold_100
+>NW_023366718.1-scaffold_101
+>NW_023366719.1-scaffold_102
+(...)
+>NW_023367389.1-scaffold_97
+>NW_023367390.1-scaffold_98
+>NW_023367391.1-scaffold_99
+>chrM
+>chrC
+```
