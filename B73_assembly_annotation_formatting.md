@@ -1,13 +1,13 @@
 
 # Assembly formatting 
 
-#### 1) Download the assembly from NBCI 
+#### 1) Download the assembly from NCBI 
 
 ```bash
 $ wget -O - https://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/902/167/145/GCF_902167145.1_Zm-B73-REFERENCE-NAM-5.0/GCF_902167145.1_Zm-B73-REFERENCE-NAM-5.0_genomic.fna.gz | gunzip -d > GCF_902167145.1_Zm-B73-REFERENCE-NAM-5.0_genomic.fasta
 ```
 
-#### 2) Verify the chromosome names 
+#### 2) Verify the chromosome names of the assembly
 
 ```bash
 $ grep ">" GCF_902167145.1_Zm-B73-REFERENCE-NAM-5.0_genomic.fasta
@@ -34,7 +34,7 @@ $ grep ">" GCF_902167145.1_Zm-B73-REFERENCE-NAM-5.0_genomic.fasta
 >NC_001666.2 Zea mays chloroplast, complete genome
 ```
 
-#### 3) Edit the chromosome names 
+#### 3) Edit the chromosome names of the assembly
 
 ```awk
  awk '{ if ($0 ~ /mitochondrion/) print ">chrM" ; 
@@ -46,7 +46,7 @@ $ grep ">" GCF_902167145.1_Zm-B73-REFERENCE-NAM-5.0_genomic.fasta
            Zm-B73-REFERENCE-NAM-5.0_genomic.with_scaffolds.fasta
 ```
 
-#### 4) Verify the new chromosome names 
+#### 4) Verify the new chromosome names of the assembly
 
 ```bash
 $ grep ">" Zm-B73-REFERENCE-NAM-5.0_genomic.with_scaffolds.fasta
@@ -72,3 +72,33 @@ $ grep ">" Zm-B73-REFERENCE-NAM-5.0_genomic.with_scaffolds.fasta
 >chrM
 >chrC
 ```
+
+# Annotation formatting 
+
+#### 1) Download the annotation from NCBI 
+
+```bash
+wget https://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/902/167/145/GCF_902167145.1_Zm-B73-REFERENCE-NAM-5.0/GCF_902167145.1_Zm-B73-REFERENCE-NAM-5.0_genomic.gff.gz
+```
+
+#### 2) Verify the chromosome names of the annotation
+
+
+
+#### 3) Edit the chromosome names of the annotation
+
+cat GCF_902167145.1_Zm-B73-REFERENCE-NAM-5.0_genomic.gff | sed \
+'s/NC_050096.1/chr1/g; 
+ s/NC_050097.1/chr2/g; 
+ s/NC_050098.1/chr3/g; 
+ s/NC_050099.1/chr4/g; 
+ s/NC_050100.1/chr5/g; 
+ s/NC_050101.1/chr6/g; 
+ s/NC_050102.1/chr7/g; 
+ s/NC_050103.1/chr8/g; 
+ s/NC_050104.1/chr9/g; 
+ s/NC_050105.1/chr10/g; 
+ s/NC_007982.1/chrM/g; 
+ s/NC_001666.2/chrC/g' | grep -v 'chrC\|chrM' >  Zm-B73-REFERENCE-NAM-5.0_genomic.with_scaffolds.test.gff
+
+#### 4) Verify the new chromosome names of the annotation
