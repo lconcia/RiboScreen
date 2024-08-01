@@ -34,7 +34,8 @@ We obtained known sequences of the chosen contaminants from public repositories.
 To ensure specificity, we used them as queries to search the maize cv. B73 genome, to identify similar but non-identical sequences present in the assembly. 
 
 ### 3)  Filtering and formatting of BLAST output
-See BLAST_output_formatting.md
+See [BLAST_output_formatting](https://github.com/lconcia/RiboScreen/blob/main/BLAST_output_formatting.md)
+
 * **28S rRNA subunit :** 28S.Zea_Mays_vs_AGPv5.querysize.above_90.merged.fasta.gz
 * **18S rRNA subunit :** 18S.Zea_Mays_vs_AGPv5.querysize.above_90.merged.fasta.gz
 * **5.8S rRNA subunit :** 5.8S.Zea_Mays_vs_AGPv5.querysize.above_90.merged.fasta.gz
