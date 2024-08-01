@@ -32,7 +32,8 @@ We obtained known sequences of the chosen contaminants from public repositories.
 
 ### 2) BLAST sequences over maize AGPv5 genome assembly
 To ensure specificity, we used them as queries to search the maize cv. B73 genome, to identify similar but non-identical sequences present in the assembly. 
-### 3) BLAST output filtering and formatting
+
+### 3)  Filtering and formatting of BLAST output
 See BLAST_output_formatting.md
 * **28S rRNA subunit :** 28S.Zea_Mays_vs_AGPv5.querysize.above_90.merged.fasta.gz
 * **18S rRNA subunit :** 18S.Zea_Mays_vs_AGPv5.querysize.above_90.merged.fasta.gz
@@ -43,6 +44,7 @@ See BLAST_output_formatting.md
 * **Transfer RNAs (tRNA) :** tRNAs.vs_AGPv5.merged.fasta.gz
 * **Plastid chromosome :** Chl.vs_AGPv5.fasta.gz
 * **Mitochondrial chromosome :** Mt.vs_AGPv5.fasta.gz
+
 ### 4) Use the sequences to identify contaminant with sortMeRNA  
 We tested the database against RNA-Seq data from maize cv. B73. We then explored the possibility of using the same database on other samples, running the same analysis on a different maize cultivar, NC350, and on a relative species, sorghum. 
 
