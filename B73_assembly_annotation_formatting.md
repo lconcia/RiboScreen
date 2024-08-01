@@ -126,5 +126,3 @@ cat GCF_902167145.1_Zm-B73-REFERENCE-NAM-5.0_genomic.gff | sed \
  s/NC_007982.1/chrM/g; 
  s/NC_001666.2/chrC/g' | grep -v 'chrC\|chrM' >  Zm-B73-REFERENCE-NAM-5.0_genomic.with_scaffolds.gff
 ```
-
-#### 4) Verify the new chromosome names of the annotation
