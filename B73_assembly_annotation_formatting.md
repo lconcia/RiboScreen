@@ -78,15 +78,40 @@ $ grep ">" Zm-B73-REFERENCE-NAM-5.0_genomic.with_scaffolds.fasta
 #### 1) Download the annotation from NCBI 
 
 ```bash
-wget https://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/902/167/145/GCF_902167145.1_Zm-B73-REFERENCE-NAM-5.0/GCF_902167145.1_Zm-B73-REFERENCE-NAM-5.0_genomic.gff.gz
+$ wget -O - https://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/902/167/145/GCF_902167145.1_Zm-B73-REFERENCE-NAM-5.0/GCF_902167145.1_Zm-B73-REFERENCE-NAM-5.0_genomic.gff.gz | gunzip -d > GCF_902167145.1_Zm-B73-REFERENCE-NAM-5.0_genomic.gff
 ```
 
 #### 2) Verify the chromosome names of the annotation
 
+```bash
+$ cut -f 1 GCF_902167145.1_Zm-B73-REFERENCE-NAM-5.0_genomic.gff | grep -v \# | sort | uniq 
+```
 
+```bash
+NC_001666.2
+NC_007982.1
+NC_050096.1
+NC_050097.1
+NC_050098.1
+NC_050099.1
+NC_050100.1
+NC_050101.1
+NC_050102.1
+NC_050103.1
+NC_050104.1
+NC_050105.1
+NW_023366717.1
+NW_023366718.1
+NW_023366719.1
+(...)
+NW_023367389.1
+NW_023367390.1
+NW_023367391.1
+```
 
 #### 3) Edit the chromosome names of the annotation
 
+```bash
 cat GCF_902167145.1_Zm-B73-REFERENCE-NAM-5.0_genomic.gff | sed \
 's/NC_050096.1/chr1/g; 
  s/NC_050097.1/chr2/g; 
@@ -99,6 +124,7 @@ cat GCF_902167145.1_Zm-B73-REFERENCE-NAM-5.0_genomic.gff | sed \
  s/NC_050104.1/chr9/g; 
  s/NC_050105.1/chr10/g; 
  s/NC_007982.1/chrM/g; 
- s/NC_001666.2/chrC/g' | grep -v 'chrC\|chrM' >  Zm-B73-REFERENCE-NAM-5.0_genomic.with_scaffolds.test.gff
+ s/NC_001666.2/chrC/g' | grep -v 'chrC\|chrM' >  Zm-B73-REFERENCE-NAM-5.0_genomic.with_scaffolds.gff
+```
 
 #### 4) Verify the new chromosome names of the annotation
