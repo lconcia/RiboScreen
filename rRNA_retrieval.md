@@ -1,8 +1,4 @@
 #### This file describe the identification of rRNA sequences from B73 genome assembly
-### test4
-#### test3
-##### test2
-###### test1
 
 #### 1) Extract rRNA features from the annotation
 
