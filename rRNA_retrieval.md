@@ -66,127 +66,41 @@ chr1	78523371	78523489	5S-ID=rna-XR_004855692.1	.	+
 chr2	227610721	227610839	5S-ID=rna-XR_004856556.1	.	+
 ```
 
- #### 4) Extract the fasta sequences from the genome assembly
+ #### 4) Extract the rRNA sequences from the genome assembly
 
 ```bash
 for f in rRNA.Zm-B73-REFERENCE-NAM-5.0_genomic.with_scaffolds.*.bed
 do
 ls $f
-bedtools getfasta -fi Zm-B73-REFERENCE-NAM-5.0_genomic.with_scaffolds.fasta -bed  $f -fo $(basename $f bed)fasta
+bedtools getfasta -fi Zm-B73-REFERENCE-NAM-5.0_genomic.with_scaffolds.no_names.fasta -bed  $f -fo $(basename $f bed)fasta
 done
 ```
 
--rw-r--r-- 1 lconcia G-815499  38K Jul 21 18:16 rRNA.Zm-B73-REFERENCE-NAM-5.0_genomic.with_scaffolds.5S.bed
--rw-r--r-- 1 lconcia G-815499  34K Jul 21 18:16 rRNA.Zm-B73-REFERENCE-NAM-5.0_genomic.with_scaffolds.5.8S.bed
--rw-r--r-- 1 lconcia G-815499  31K Jul 21 18:16 rRNA.Zm-B73-REFERENCE-NAM-5.0_genomic.with_scaffolds.28S.bed
--rw-r--r-- 1 lconcia G-815499  31K Jul 21 18:16 rRNA.Zm-B73-REFERENCE-NAM-5.0_genomic.with_scaffolds.18S.bed
 
-
-
-
-
-chr10   34699901    34701711    18S-ID=rna-XR_004853520.1   .   +
-chr6    16749900    16751710    18S-ID=rna-XR_004851001.1   .   -
-
-==> rRNA.Zm-B73-REFERENCE-NAM-5.0_genomic.with_scaffolds.28S.bed <==
-chr10   34702309    34705691    28S-ID=rna-XR_004853522.1   .   +
-chr6    16745916    16749299    28S-ID=rna-XR_004850581.1   .   -
-
-==> rRNA.Zm-B73-REFERENCE-NAM-5.0_genomic.with_scaffolds.5.8S.bed <==
-chr6    16749525    16749680    5.8S-ID=rna-XR_004850911.1  .   -
-chr6    16758321    16758476    5.8S-ID=rna-XR_004850922.1  .   -
-
-==> rRNA.Zm-B73-REFERENCE-NAM-5.0_genomic.with_scaffolds.5S.bed <==
-chr1    45918126    45918244    5S-ID=rna-XR_004855769.1    .   +
-chr1    78523371    78523489    5S-ID=rna-XR_004855692.1    .   +
-
-
-
-############################################################################################################################################################
-############################################################################################################################################################
-
-
-### blast the annotated subunits 
-
-
-### extract the fasta 
-
-bedtools getfasta \
--fi /work2/03302/lconcia/stampede2/references/maize/Zm-B73-REFERENCE-NAM-5.0_without_scaffold.fa \
--bed  $f \
--fo   fasta_files/`basename $f bed`fasta
-done
-
-
--rw-r--r-- 1 lconcia G-815499  38K Jul 21 18:16 rRNA.Zm-B73-REFERENCE-NAM-5.0_genomic.with_scaffolds.5S.bed
--rw-r--r-- 1 lconcia G-815499  34K Jul 21 18:16 rRNA.Zm-B73-REFERENCE-NAM-5.0_genomic.with_scaffolds.5.8S.bed
--rw-r--r-- 1 lconcia G-815499  31K Jul 21 18:16 rRNA.Zm-B73-REFERENCE-NAM-5.0_genomic.with_scaffolds.28S.bed
--rw-r--r-- 1 lconcia G-815499  31K Jul 21 18:16 rRNA.Zm-B73-REFERENCE-NAM-5.0_genomic.with_scaffolds.18S.bed
-
-
-module load tacc-apptainer 
-
-
-sed 's/-scaffold_[0-9]\{1,3\}//g' < test
-
-sed 's/-scaffold_[0-9]\{1,3\}//g' < /work2/03302/lconcia/references/maize/Zm-B73-REFERENCE-NAM-5.0_genomic.with_scaffolds.fasta 
-> /work2/03302/lconcia/references/maize/Zm-B73-REFERENCE-NAM-5.0_genomic.with_scaffolds.no_names.fasta
-
-###
-
-time apptainer exec /work2/03302/lconcia/sif_files/bedtools_2.31.0.sif bedtools getfasta -fi /work2/03302/lconcia/references/maize/Zm-B73-REFERENCE-NAM-5.0_genomic.with_scaffolds.no_names.fasta \
--bed  rRNA.Zm-B73-REFERENCE-NAM-5.0_genomic.with_scaffolds.5S.bed \
--fo   rRNA.Zm-B73-REFERENCE-NAM-5.0_genomic.with_scaffolds.5S.fasta
-
-real    0m9.478s
-user    0m7.917s
-sys 0m0.673s
-
-
-time apptainer exec /work2/03302/lconcia/sif_files/bedtools_2.31.0.sif bedtools getfasta -fi /work2/03302/lconcia/references/maize/Zm-B73-REFERENCE-NAM-5.0_genomic.with_scaffolds.no_names.fasta \
--bed  rRNA.Zm-B73-REFERENCE-NAM-5.0_genomic.with_scaffolds.5.8S.bed \
--fo   rRNA.Zm-B73-REFERENCE-NAM-5.0_genomic.with_scaffolds.5.8S.fasta
-
-real    0m1.144s
-user    0m0.182s
-sys 0m0.095s
-
-
-time apptainer exec /work2/03302/lconcia/sif_files/bedtools_2.31.0.sif bedtools getfasta -fi /work2/03302/lconcia/references/maize/Zm-B73-REFERENCE-NAM-5.0_genomic.with_scaffolds.no_names.fasta \
--bed  rRNA.Zm-B73-REFERENCE-NAM-5.0_genomic.with_scaffolds.28S.bed \
--fo   rRNA.Zm-B73-REFERENCE-NAM-5.0_genomic.with_scaffolds.28S.fasta
-
-real    0m1.158s
-user    0m0.183s
-sys 0m0.097s
-
-
-time apptainer exec /work2/03302/lconcia/sif_files/bedtools_2.31.0.sif bedtools getfasta -fi /work2/03302/lconcia/references/maize/Zm-B73-REFERENCE-NAM-5.0_genomic.with_scaffolds.no_names.fasta \
--bed  rRNA.Zm-B73-REFERENCE-NAM-5.0_genomic.with_scaffolds.18S.bed \
--fo   rRNA.Zm-B73-REFERENCE-NAM-5.0_genomic.with_scaffolds.18S.fasta
-
-real    0m1.151s
-user    0m0.164s
-sys 0m0.094s
-
-
-   1134 rRNA.Zm-B73-REFERENCE-NAM-5.0_genomic.with_scaffolds.18S.fasta
-   1112 rRNA.Zm-B73-REFERENCE-NAM-5.0_genomic.with_scaffolds.28S.fasta
-   1214 rRNA.Zm-B73-REFERENCE-NAM-5.0_genomic.with_scaffolds.5.8S.fasta
-   1394 rRNA.Zm-B73-REFERENCE-NAM-5.0_genomic.with_scaffolds.5S.fasta
-
-
-grep -c ">" *fasta
-rRNA.Zm-B73-REFERENCE-NAM-5.0_genomic.with_scaffolds.18S.fasta:567
-rRNA.Zm-B73-REFERENCE-NAM-5.0_genomic.with_scaffolds.28S.fasta:556
-rRNA.Zm-B73-REFERENCE-NAM-5.0_genomic.with_scaffolds.5.8S.fasta:607
-rRNA.Zm-B73-REFERENCE-NAM-5.0_genomic.with_scaffolds.5S.fasta:697
-
-
-
+##### expected output 
 
 ```bash
-  
+==> rRNA.Zm-B73-REFERENCE-NAM-5.0_genomic.with_scaffolds.18S.fasta <==
+>chr6:16749900-16751710
+aatgatccttccgcaggttcacctacggaaaccttgttacgacttctccttcctctaaatgataaggttcaatggacttctcgcgacgtcgggggcggcgaaccgcccccgtcgccgcgatccgaacacttcaccggaccattcaatcggtaggagcgacgggcggtgtgtacaaagggcagggacgtagtcaacgcgagctgatgactcgcgcttactaggcattcctcgttgaagaccaacaattgcaatgatctatccccatcacgatgaaatttcccaagattacccgggcctgtcggccaaggctatatactcgttggatacatcagtgtagcgcgcgtgcggcccagaacatctaagggcatcacagacctgttattgcctcaaacttccgtggcctaaacggccatagtccctctaagaagctaactacggagggatggctccgcatagctagttagcaggctgaggtctcgttcgttaacggaattaaccagacaaatcgctccaccaactaagaacggccatgcaccaccacccatagaatcaagaaagagctctcagtctgtcaatccttgctatgtctggacctggtaagtttccccgtgttgagtcaaattaagccgcaggctccacgcctggtggtgcccttccgtcaattcctttaagtttcagccttgcgaccatactccccccggaacccaaagactttgatttctcataaggtgccagcggggtcctattagtaacacccgctgatccctggtcggcatcgtttatggttgagactaggacggtatctgatcgtcttcgagcccccaactttcgttcttgattaatgaaaacatccttggcaaatgctttcgcagttgttcgtctttcataaatccaagaatttcacctctgactatgaaatacgaatgcccccgactgtccctattaatcattactccgatcccgaaggccaacacaataggaccggaatcctatgatgttatcccatgctaatgtatccagagcgatggcttgctttgagcactctaatttcttcaaagtaacggcgccggaggcacgacccggccagttaaggccaggagcgcatcgccggcagaagggtcgagccggtcggttctcgccgtgaggcggaccggccggcccggcccaaggtccaactacgagctttttaactgcaacaacttaaatatacgctattggagctggaattaccgcggctgctggcaccagacttgccctccaatggatcctcgttaagggatttagattgtactcattccaattaccagacactaacgcgcccggtattgttatttattgtcactacctccccgtgtcaggattgggtaatttgcgcgcctgctgccttccttggatgtggtagccgtttctcaggctccctctccggaatcgaaccctaattctccgtcacccgtcaccaccatggtaggcccctatcctaccatcgaaagttgatagggcagaaatttgaatgatgcgtcgccggcacgaaggccgtgcgatccgtcaagttatcatgaatcatcggatcggcgggcagagcccgcgtcagccttttatctaataaatgcgcccctcccggaagtcggggtttgttgcacgtattagctctagaattactacggttatccgagtagcacgtaccatcaaacaaactataactgatttaatgagccattcgcagtttcacagttcgaattagttcatacttgcacatgcatggcttaatctttgagacaagcatatgactactggcaggatcaaccaggta
+>chr6:16758696-16760506
+aatgatccttccgcaggttcacctacggaaaccttgttacgacttctccttcctctaaatgataaggttcaatggacttctcgcgacgtcgggggcggcgaaccgcccccgtcgccgcgatccgaacacttcaccggaccattcaatcggtaggagcgacgggcggtgtgtacaaagggcagggacgtagtcaacgcgagctgatgactcgcgcttactaggcattcctcgttgaagaccaacaattgcaatgatctatccccatcacgatgaaatttcccaagattacccgggcctgtcggccaaggctatatactcgttggatacatcagtgtagcgcgcgtgcggcccagaacatctaagggcatcacagacctgttattgcctcaaacttccgtggcctaaacggccatagtccctctaagaagctaactacggagggatggctccgcatagctagttagcaggctgaggtctcgttcgttaacggaattaaccagacaaatcgctccaccaactaagaacggccatgcaccaccacccatagaatcaagaaagagctctcagtctgtcaatccttgctatgtctggacctggtaagtttccccgtgttgagtcaaattaagccgcaggctccacgcctggtggtgcccttccgtcaattcctttaagtttcagccttgcgaccatactccccccggaacccaaagactttgatttctcataaggtgccagcggggtcctattagtaacacccgctgatccctggtcggcatcgtttatggttgagactaggacggtatctgatcgtcttcgagcccccaactttcgttcttgattaatgaaaacatccttggcaaatgctttcgcagttgttcgtctttcataaatccaagaatttcacctctgactatgaaatacgaatgcccccgactgtccctattaatcattactccgatcccgaaggccaacacaataggaccggaatcctatgatgttatcccatgctaatgtatccagagcgatggcttgctttgagcactctaatttcttcaaagtaacggcgccggaggcacgacccggccagttaaggccaggagcgcatcgccggcagaagggtcgagccggtcggttctcgccgtgaggcggaccggccggcccggcccaaggtccaactacgagctttttaactgcaacaacttaaatatacgctattggagctggaattaccgcggctgctggcaccagacttgccctccaatggatcctcgttaagggatttagattgtactcattccaattaccagacactaacgcgcccggtattgttatttattgtcactacctccccgtgtcaggattgggtaatttgcgcgcctgctgccttccttggatgtggtagccgtttctcaggctccctctccggaatcgaaccctaattctccgtcacccgtcaccaccatggtaggcccctatcctaccatcgaaagttgatagggcagaaatttgaatgatgcgtcgccggcacgaaggccgtgcgatccgtcaagttatcatgaatcatcggatcggcgggcagagcccgcgtcagccttttatctaataaatgcgcccctcccggaagtcggggtttgttgcacgtattagctctagaattactacggttatccgagtagcacgtaccatcaaacaaactataactgatttaatgagccattcgcagtttcacagttcgaattagttcatacttgcacatgcatggcttaatctttgagacaagcatatgactactggcaggatcaaccaggta
+
+==> rRNA.Zm-B73-REFERENCE-NAM-5.0_genomic.with_scaffolds.28S.fasta <==
+>chr6:16745916-16749299
+cgaatccgtgcgacgcggggctggatctcagtggatcgtggcagcaaggccactctgccacttacaatgccccgtcgcgttttaagtcgtctgcaaaggattcagcacgccgcccgttgggaagggagcttcgaggcggcccgccgcggcgcgtcggccgggcgggctgagccaatggcacgggcccttggggcgcgaacgccctaacgtgggtcggggcgggcggcgagcagaggcgccggttgctagcttggattctgacttagaggcgttcagtcataatccggcacacggtagcttcgcgccactggcttttcaaccaagcgcgatgaccaattgtgtgaatcaacggttcctctcgtactaggttgaattactatcgcggcgcggtcatcagtagggtaaaactaacctgtctcacgacggtctaaacccagctcacgttccctattggtgggtgaacaatccaacacttggtgaattctgcttcacaatgataggaagagccgacatcgaaggatcaaaaagcaacgtcgctatgaacgcttggctgccacaagccagttatccctgtggtaacttttctgacacctctagcttcaaactccgaaggtctaaaggatcgataggccacgctttcacggttcgtattcgtactggaaatcagaatcaaacgagcttttacccttttgttccacacgagatttctgttctcgttgagctcatcttaggacacctgcgttatcttttaacagatgtgccgccccagccaaactccccacctgacaatgtcttccgcccggatcggcccggcgaggccgggccttggagccaaaaggaggggcggtgccccgcttccgacccacggaataagtaaaataacgttaaaagtagtggtatttcacttgcgcccggaggctcccacttatcctacacctctcaagtcatttcacaaagtcggactagagtcaagctcaacagggtcttctttccccgctgattccgccaagcccgttcccttggctgtggtttcgctggatagtagacagggacagtgggaatctcgttaatccattcatgcgcgtcactaattagatgacgaggcatttggctaccttaagagagtcatagttactcccgccgtttacccgcgcttggttgaatttcttcactttgacattcagagcactgggcagaaatcacattgcgtcagcatcctcgaggaccgtcgcaatgctttgttttaattaaacagtcggattccccttgtccgtaccagttctgagtcggttgttcgacgcccggggaaggcccccgagggggccgttcccggtccgtcccccggccggcacgcggcggcccgctctcgccgcgcgagcagctcgagcattccgccagcagccgacgggttcggggccgggacccccgagcccaaccctcagagccaatccttttcccgaagttacggatccgttttgccgacttcccttgcctacattgttccattggccagaggctgttcaccttggagacctgatgcggttatgagtacgaccgggcgtggacggaattcggtcctccggattttcaagggccgccgggggcgcaccggacaccgcgcgatgtgcggtgctcttccggccgctggaccctacctccggctgaaccgattccagggttggcgggccgttaagcagaaaagataactcttcccgaggcccccgtcggcgtctccggacttcctaacgtcgccgtctgccgccacgtcccggctcgggaaatcttaacccgattccctttcgggtgacgcgcgtgatcgcgctatctgccgggtttcccccgtcccttaggatcggcttacccatgtgcaagtgccgttcacatggaacctttctcctcttcggccttcaaagttctcatttgaatatttgctactaccaccaagatctgcaccgacggccgctccgcccgggctcgcgccccgggttttgcggcggccgccgcgccctcctactcatcggggcatgtcgctcgcccagatggccgggtgtgggtcgcgcgcttcagcgccatccattttcggggctagttgattcggcaggtgagttgttacacactccttagcggatttcgacttccatgaccaccgtcctgctgtcttaatcgaccaacaccctttgtgggttctaggttagcgcgcagtttggcaccgtaacccggcttccggttcatcccgcatcgccagttctgcttaccaaaaatggcccacttggagctcccgattccgtggcacggctcaccgaagcagccgcgccgtcctacctatttaaagtttgagaataggtcgagggcgttgcgcccccgatgcctctaatcattggctttacccgatagaactcgtgtgggctccagctatcctgagggaaacttcggagggaaccagctactagatggttcgattagtctttcgcccctatacccaagtcagacgaacgatttgcacgtcagtatcgcttcgagcctccaccagagtttcctctggcttcgccccgctcaggcatagttcaccatctttcgggtcccgacaggcgtgctccaactcgaacccttcacagaagatcagggtcggccagcggtgcggcccgtgagggcctcccgctcgtcagcttccttgcgcatctcaggtttctgaacccgtcgactcgcacgcatgtcagactccttggtccgtgtttcaagacgggtcggatggggagctcgcaggccgttgcagcgcagcgccccgaggggcgcgccagaggcgcgcggataccgtccgcgccgacgacggctgccgggggcgcctagggcccccgggctttggccgccggcgcgggcgacaacggtccacgccccgagccgatcggcggaccagcaggagccgttccgcatacggccggtgcgcgtcgccagcccccatccgcttccctcccggcaatttcaagcactctttgactctcttttcaaagtccttttcatctttccctcgcgggtacttgttcgctatcggtctctcgcctgtatttagccttggacggagtttaccgcccgatttgggctgcattcccaaacaacccgactcgttgacggcgcctcgtggtgcgacagggtccgggccggacggggctctcaccctcccaggcgtccctttccagagaacttgggcccggtccgtcgctgaggacgcctctccagactacaattcgggcggcgaggccgcccgattctcaagctgggctgctcccggttcgctcgccgttactaggggaatcctcgtaagtttcttctcctccgcttatttatatgcttaaactcagcgggtagtcccgactgacctggggtcg
+>chr6:16754714-16758096
+cgaatccgtgcgacgcggggctggatctcagtggatcgtggcagcaaggccactctgccacttacaatgccccgtcgcgttttaagtcgtctgcaaaggattcagcacgccgcccgttgggaagggagcttcgaggcggcccgccgcggcgcgtcggccgggcgggctgagccaatggcacgggcccttggggcgcgaacgccctaacgtgggtcggggcgggcggcgagcagaggcgccggttgctagcttggattctgacttagaggcgttcagtcataatccggcacacggtagcttcgcgccactggcttttcaaccaagcgcgatgaccaattgtgtgaatcaacggttcctctcgtactaggttgaattactatcgcggcgcggtcatcagtagggtaaaactaacctgtctcacgacggtctaaacccagctcacgttccctattggtgggtgaacaatccaacacttggtgaattctgcttcacaatgataggaagagccgacatcgaaggatcaaaaagcaacgtcgctatgaacgcttggctgccacaagccagttatccctgtggtaacttttctgacacctctagcttcaaactccgaaggtctaaaggatcgataggccacgctttcacggttcgtattcgtactggaaatcagaatcaaacgagcttttacccttttgttccacacgagatttctgttctcgttgagctcatcttaggacacctgcgttatcttttaacagatgtgccgccccagccaaactccccacctgacaatgtcttccgcccggatcggcccggcgaggccgggccttggagccaaaaggaggggcggtgccccgcttccgacccacggaataagtaaaataacgttaaaagtagtggtatttcacttgcgcccggaggctcccacttatcctacacctctcaagtcatttcacaaagtcggactagagtcaagctcaacagggtcttctttccccgctgattccgccaagcccgttcccttggctgtggtttcgctggatagtagacagggacagtgggaatctcgttaatccattcatgcgcgtcactaattagatgacgaggcatttggctaccttaagagagtcatagttactcccgccgtttacccgcgcttggttgaatttcttcactttgacattcagagcactgggcagaaatcacattgcgtcagcatcctcgaggaccgtcgcaatgctttgttttaattaaacagtcggattccccttgtccgtaccagttctgagtcggttgttcgacgcccggggaaggcccccgagggggccgttcccggtccgtcccccggccggcacgcggcggcccgctctcgccgcgcgagcagctcgagcattccgccagcagccgacgggttcggggccgggacccccgagcccaaccctcagagccaatccttttcccgaagttacggatccgttttgccgacttcccttgcctacattgttccattggccagaggctgttcaccttggagacctgatgcggttatgagtacgaccgggcgtggacggaattcggtcctccggattttcaagggccgccgggggcgcaccggacaccgcgcgatgtgcggtgctcttccggccgctggaccctacctccggctgaaccgattccagggttggcgggccgttaagcagaaaagataactcttcccgaggcccccgccggcgtctccggacttcctaacgtcgccgtctgccgccacgtcccggctcgggaaatcttaacccgattccctttcgggtgacgcgcgtgatcgcgctatctgccgggtttcccccgtcccttaggatcggcttacccatgtgcaagtgccgttcacatggaacctttctcctcttcggccttcaaagttctcatttgaatatttgctactaccaccaagatctgcaccgacggccgctccgcccgggctcgcgccccgggttttgcggcggccgccgcgccctcctactcatcggggcatgtcgctcgcccagatggccgggtgtgggtcgcgcgcttcagcgccatccattttcggggctagttgattcggcaggtgagttgttacacactccttagcggatttcgacttccatgaccaccgtcctgctgtcttaatcgaccaacaccctttgtgggttctaggttagcgcgcagtttggcaccgtaacccggcttccggttcatcccgcatcgccagttctgcttaccaaaaatggcccacttggagctcccgattccgtggcacggctcaccgaagcagccgcgccgtcctacctatttaaagtttgagaataggtcgagggcgttgcgcccccgatgcctctaatcattggctttacccgatagaactcgtgtgggctccagctatcctgagggaaacttcggagggaaccagctactagatggttcgattagtctttcgcccctatacccaagtcagacgaacgatttgcacgtcagtatcgcttcgagcctccaccagagtttcctctggcttcgccccgctcaggcatagttcaccatctttcgggtcccgacaggcgtgctccaactcgaacccttcacagaagatcagggtcggccagcggtgcggcccgtgagggcctcccgctcgtcagcttccttgcgcatctcaggtttctgaacccgtcgactcgcacgcatgtcagactccttggtccgtgtttcaagacgggtcggatggggagctcgcaggccgttgcagcgcagcgccccgaggggcgcgccagaggcgcgcggataccgtccgcgccgacgacggctgccgggggcgcctagggcccccgggctttggccgccggcgcgggcgacaacggtccacgccccgagccgatcggcggaccagcaggagccgttccgcatacggccggtgcgcgtcgccagcccccatccgcttccctcccggcaatttcaagcactctttgactctcttttcaaagtccttttcatctttccctcgcggtacttgttcgctatcggtctctcgcctgtatttagccttggacggagtttaccgcccgatttgggctgcattcccaaacaacccgactcgttgacggcgcctcgtggtgcgacagggtccgggccggacggggctctcaccctcccaggcgtccctttccagagaacttgggcccggtccgtcgctgaggacgcctctccagactacaattcgggcggcgaggccgcccgattctcaagctgggctgctcccggttcgctcgccgttactaggggaatcctcgtaagtttcttctcctccgcttatttatatgcttaaactcagcgggtagtcccgactgacctggggtcg
+
+==> rRNA.Zm-B73-REFERENCE-NAM-5.0_genomic.with_scaffolds.5.8S.fasta <==
+>chr6:16749525-16749680
+gacgcccaggcagacgtgccctccgccagaaggcttcgggcgcaacttgcgttcaaaaactcgatggttcgcgggattctgcaattcacaccaggtatcgcattttgctacgttcttcatcgatgcgagagccgagatatccgttgccgagagtc
+>chr6:16758321-16758476
+gacgcccaggcagacgtgccctccgccagaaggcttcgggcgcaacttgcgttcaaaaactcgatggttcgcgggattctgcaattcacaccaggtatcgcattttgctacgttcttcatcgatgcgagagccgagatatccgttgccgagagtc
+
+==> rRNA.Zm-B73-REFERENCE-NAM-5.0_genomic.with_scaffolds.5S.fasta <==
+>chr1:45918126-45918244
+GATGCGATcaaaccagcactaaagcaccggagcctattagaactccgaagttaagcgtactTGGACAAGAGTAGTATTAGGATGGGTGACCTTATGAGAAGTTCTTGTGTTGTATTCC
+>chr1:78523371-78523489
+gatgcgatcataccagcactaaagcaccggatcccatcagaactccgaagttaagcgtgcttgggcgagagtagtactaggatgggtgacctcctgggaagtcctcgtgttgtatTCC
 ```
-
-
