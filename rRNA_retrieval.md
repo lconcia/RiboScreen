@@ -9,15 +9,7 @@
 ```bash
 $ awk ' $3=="rRNA" '  Zm-B73-REFERENCE-NAM-5.0_genomic.with_scaffolds.gff > rRNA.Zm-B73-REFERENCE-NAM-5.0_genomic.with_scaffolds.gff
 ```
-##### Inspect the output
-
-```bash
-$ wc -l rRNA.Zm-B73-REFERENCE-NAM-5.0_genomic.with_scaffolds.gff
-2428
-```
-```bash
-head -n 5 rRNA.Zm-B73-REFERENCE-NAM-5.0_genomic.with_scaffolds.gff
-```
+##### expected output
 ```bash
 chr1 cmsearch rRNA  45918126  45918244 . + . ID=rna-XR_004855769.1;Parent=gene-LOC111590732;Dbxref=GeneID:111590732,RFAM:RF00001,GenBank:XR_004855769.1;Name=XR_004855769.1;gbkey=rRNA;gene=LOC111590732;inference=COORDINATES: profile:INFERNAL:1.1.1;product=5S ribosomal RNA;transcript_id=XR_004855769.1
 chr1 cmsearch rRNA  78523371  78523489 . + . ID=rna-XR_004855692.1;Parent=gene-LOC111590622;Dbxref=GeneID:111590622,RFAM:RF00001,GenBank:XR_004855692.1;Name=XR_004855692.1;gbkey=rRNA;gene=LOC111590622;inference=COORDINATES: profile:INFERNAL:1.1.1;product=5S ribosomal RNA;transcript_id=XR_004855692.1
@@ -25,110 +17,71 @@ chr2 cmsearch rRNA 227610721 227610839 . + . ID=rna-XR_004856556.1;Parent=gene-L
 chr2 cmsearch rRNA 227611040 227611158 . + . ID=rna-XR_004856667.1;Parent=gene-LOC111591002;Dbxref=GeneID:111591002,RFAM:RF00001,GenBank:XR_004856667.1;Name=XR_004856667.1;gbkey=rRNA;gene=LOC111591002;inference=COORDINATES: profile:INFERNAL:1.1.1;product=5S ribosomal RNA;transcript_id=XR_004856667.1
 chr2 cmsearch rRNA 227611359 227611477 . + . ID=rna-XR_004856752.1;Parent=gene-LOC111591093;Dbxref=GeneID:111591093,RFAM:RF00001,GenBank:XR_004856752.1;Name=XR_004856752.1;gbkey=rRNA;gene=LOC111591093;inference=COORDINATES: profile:INFERNAL:1.1.1;product=5S ribosomal RNA;transcript_id=XR_004856752.1
 ```
+ 
+#### 2) Split the file by rRNA species 
+ 
+```bash
+grep  18S rRNA.Zm-B73-REFERENCE-NAM-5.0_genomic.with_scaffolds.gff > rRNA.Zm-B73-REFERENCE-NAM-5.0_genomic.with_scaffolds.18S.gff
 
+grep  28S rRNA.Zm-B73-REFERENCE-NAM-5.0_genomic.with_scaffolds.gff > rRNA.Zm-B73-REFERENCE-NAM-5.0_genomic.with_scaffolds.28S.gff
 
+grep   5S rRNA.Zm-B73-REFERENCE-NAM-5.0_genomic.with_scaffolds.gff > rRNA.Zm-B73-REFERENCE-NAM-5.0_genomic.with_scaffolds.5S.gff
+
+grep 5.8S rRNA.Zm-B73-REFERENCE-NAM-5.0_genomic.with_scaffolds.gff > rRNA.Zm-B73-REFERENCE-NAM-5.0_genomic.with_scaffolds.5.8S.gff
+```
+ 
+#### 3) convert from GFF to BED files 
 
 ```bash
-  
+cat rRNA.Zm-B73-REFERENCE-NAM-5.0_genomic.with_scaffolds.5S.gff | sed 's/;/\t/g' |  awk '{OFS="\t"}{print $1,$4,$5,$17"-"$9,$6,$7 }' > rRNA.Zm-B73-REFERENCE-NAM-5.0_genomic.with_scaffolds.5S.bed
+
+cat rRNA.Zm-B73-REFERENCE-NAM-5.0_genomic.with_scaffolds.5.8S.gff | sed 's/;/\t/g' |  awk '{OFS="\t"}{print $1,$4,$5,$17"-"$9,$6,$7 }' > rRNA.Zm-B73-REFERENCE-NAM-5.0_genomic.with_scaffolds.5.8S.bed
+
+cat rRNA.Zm-B73-REFERENCE-NAM-5.0_genomic.with_scaffolds.28S.gff | sed 's/;/\t/g' |  awk '{OFS="\t"}{print $1,$4,$5,$17"-"$9,$6,$7 }' > rRNA.Zm-B73-REFERENCE-NAM-5.0_genomic.with_scaffolds.28S.bed
+
+cat rRNA.Zm-B73-REFERENCE-NAM-5.0_genomic.with_scaffolds.18S.gff | sed 's/;/\t/g' | awk '{OFS="\t"}{print $1,$4,$5,$17"-"$9,$6,$7 }' - > rRNA.Zm-B73-REFERENCE-NAM-5.0_genomic.with_scaffolds.18S.bed
 ```
-#### 1) Split the file by rRNA species ( "product")
 
-
-## also, delete ChrM and ChrC --> should not be there
+##### expected output 
 
 ```bash
-cat rRNA.Zm-B73-REFERENCE-NAM-5.0_genomic.with_scaffolds.gff | grep -v 'chrC\|chrM' |  sed 's/product=/\t/g; s/ribosomal /\t/g' | cut -f 10 | sort | uniq -c 
+==> rRNA.Zm-B73-REFERENCE-NAM-5.0_genomic.with_scaffolds.18S.bed <==
+chr6	16749900	16751710	18S-ID=rna-XR_004851001.1	.	-
+chr6	16758696	16760506	18S-ID=rna-XR_004851002.1	.	-
+chr6	16770207	16772017	18S-ID=rna-XR_004851003.1	.	-
+
+==> rRNA.Zm-B73-REFERENCE-NAM-5.0_genomic.with_scaffolds.28S.bed <==
+chr6	16745916	16749299	28S-ID=rna-XR_004850581.1	.	-
+chr6	16754714	16758096	28S-ID=rna-XR_004850541.1	.	-
+chr6	16775232	16778609	28S-ID=rna-XR_004850751.1	.	-
+
+==> rRNA.Zm-B73-REFERENCE-NAM-5.0_genomic.with_scaffolds.5.8S.bed <==
+chr6	16749525	16749680	5.8S-ID=rna-XR_004850911.1	.	-
+chr6	16758321	16758476	5.8S-ID=rna-XR_004850922.1	.	-
+chr6	16769833	16769988	5.8S-ID=rna-XR_004850933.1	.	-
+
+==> rRNA.Zm-B73-REFERENCE-NAM-5.0_genomic.with_scaffolds.5S.bed <==
+chr1	45918126	45918244	5S-ID=rna-XR_004855769.1	.	+
+chr1	78523371	78523489	5S-ID=rna-XR_004855692.1	.	+
+chr2	227610721	227610839	5S-ID=rna-XR_004856556.1	.	+
 ```
 
-   1 17S 
- 566 18S 
-   1 26S 
- 556 28S 
- 607 5.8S 
- 697 5S 
+ #### 4) Extract the fasta sequences from the genome assembly
 
 ```bash
-cat rRNA.Zm-B73-REFERENCE-NAM-5.0_genomic.with_scaffolds.gff | sed 's/product=/\t/g; s/ribosomal /\t/g' | gawk '{print >> "rRNA.Zm-B73-REFERENCE-NAM-5.0_genomic.with_scaffolds."$11".gff"; close($11)}'
+for f in rRNA.Zm-B73-REFERENCE-NAM-5.0_genomic.with_scaffolds.*.bed
+do
+ls $f
+bedtools getfasta -fi /work2/03302/lconcia/stampede2/references/maize/Zm-B73-REFERENCE-NAM-5.0_without_scaffold.fa -bed  $f -fo $(basename $f bed)fasta
+done
 ```
 
-   566 rRNA.Zm-B73-REFERENCE-NAM-5.0_genomic.with_scaffolds.18S.gff
-   556 rRNA.Zm-B73-REFERENCE-NAM-5.0_genomic.with_scaffolds.28S.gff
-   607 rRNA.Zm-B73-REFERENCE-NAM-5.0_genomic.with_scaffolds.5.8S.gff
-   697 rRNA.Zm-B73-REFERENCE-NAM-5.0_genomic.with_scaffolds.5S.gff
-     2 rRNA.Zm-B73-REFERENCE-NAM-5.0_genomic.with_scaffolds.transcript.gff
-
-  2428 total
+-rw-r--r-- 1 lconcia G-815499  38K Jul 21 18:16 rRNA.Zm-B73-REFERENCE-NAM-5.0_genomic.with_scaffolds.5S.bed
+-rw-r--r-- 1 lconcia G-815499  34K Jul 21 18:16 rRNA.Zm-B73-REFERENCE-NAM-5.0_genomic.with_scaffolds.5.8S.bed
+-rw-r--r-- 1 lconcia G-815499  31K Jul 21 18:16 rRNA.Zm-B73-REFERENCE-NAM-5.0_genomic.with_scaffolds.28S.bed
+-rw-r--r-- 1 lconcia G-815499  31K Jul 21 18:16 rRNA.Zm-B73-REFERENCE-NAM-5.0_genomic.with_scaffolds.18S.bed
 
 
-
-
-less rRNA.Zm-B73-REFERENCE-NAM-5.0_genomic.with_scaffolds.transcript.gff
-
-chr6    BestRefSeq      rRNA    17356482        17392299        .       -       .       ID=rna-NR_028022.2;Parent=gene-LOC100275739;Dbxref=GeneID:100275739,GenBank:NR_028022.2;Name=NR_028022.2;Note=The RefSeq transcript has 30 substitutions%2C 7 non-frameshifting indels compared to this genomic sequence;exception=annotated by transcript or proteomic data;gbkey=rRNA;gene=LOC100275739;inference=similar to RNA sequence (same species):RefSeq:NR_028022.2;  26S     RNA gene;transcript_id=NR_028022.2
-NW_023366867.1  BestRefSeq      rRNA    2       1413    .       -       .       ID=rna-NR_036655.1;Parent=gene-LOC100502571;Dbxref=GeneID:100502571,GenBank:NR_036655.1;Name=NR_036655.1;Note=The RefSeq transcript has 5 substitutions%2C 5 non-frameshifting indels and aligns at 77%25 coverage compared to this genomic sequence;exception=annotated by transcript or proteomic data;gbkey=rRNA;gene=LOC100502571;inference=similar to RNA sequence (same species):RefSeq:NR_036655.1;partial=true; 17S     RNA gene;start_range=.,2;transcript_id=NR_036655.1
-
-
-###    the 26s -> add to 28S  ->> no!  it is long 35-kb,  DO NOT ADD 
-
- mv rRNA.Zm-B73-REFERENCE-NAM-5.0_genomic.with_scaffolds.28S.gff rRNA.Zm-B73-REFERENCE-NAM-5.0_genomic.with_scaffolds.28S.gff.tmp
-
-cat rRNA.Zm-B73-REFERENCE-NAM-5.0_genomic.with_scaffolds.28S.gff.tmp <(grep 26S rRNA.Zm-B73-REFERENCE-NAM-5.0_genomic.with_scaffolds.transcript.gff) | \
-sort -k1,1 -k4,4n >> rRNA.Zm-B73-REFERENCE-NAM-5.0_genomic.with_scaffolds.28S.gff
-
-   557 rRNA.Zm-B73-REFERENCE-NAM-5.0_genomic.with_scaffolds.28S.gff
-   556 rRNA.Zm-B73-REFERENCE-NAM-5.0_genomic.with_scaffolds.28S.gff.tmp
-
-
-
-
-
-###    the 17s -> add to 18S
-   
-mv rRNA.Zm-B73-REFERENCE-NAM-5.0_genomic.with_scaffolds.18S.gff rRNA.Zm-B73-REFERENCE-NAM-5.0_genomic.with_scaffolds.18S.gff.tmp
-
-cat rRNA.Zm-B73-REFERENCE-NAM-5.0_genomic.with_scaffolds.18S.gff.tmp <(grep 17S rRNA.Zm-B73-REFERENCE-NAM-5.0_genomic.with_scaffolds.transcript.gff) | sort -k1,1 -k4,4n >> rRNA.Zm-B73-REFERENCE-NAM-5.0_genomic.with_scaffolds.18S.gff
-
-
-
-   567 rRNA.Zm-B73-REFERENCE-NAM-5.0_genomic.with_scaffolds.18S.gff
-   556 rRNA.Zm-B73-REFERENCE-NAM-5.0_genomic.with_scaffolds.28S.gff
-   607 rRNA.Zm-B73-REFERENCE-NAM-5.0_genomic.with_scaffolds.5.8S.gff
-   697 rRNA.Zm-B73-REFERENCE-NAM-5.0_genomic.with_scaffolds.5S.gff
-
-     2 rRNA.Zm-B73-REFERENCE-NAM-5.0_genomic.with_scaffolds.transcript.gff
-
-
-## OK!!
-
-
-############################################################################################################################################################
-############################################################################################################################################################
-
-
-### transform al to BED files 
-
-chr6    cmsearch    rRNA    16797219    16799029    .   -   .   ID=rna-XR_004851007.1;Parent=gene-LOC118472744;Dbxref=GeneID:118472744,RFAM:RF01960,GenBank:XR_004851007.1;Name=XR_004851007.1;gbkey=rRNA;gene=LOC118472744;inference=COORDINATES: profile:INFERNAL:1.1.1;  18S RNA;transcript_id=XR_004851007.1
-
-
-
-
-cat rRNA.Zm-B73-REFERENCE-NAM-5.0_genomic.with_scaffolds.5S.gff | sed 's/;/\t/g' |  awk '{OFS="\t"}{print $1,$4,$5,$17"-"$9,$6,$7 }' > \
-rRNA.Zm-B73-REFERENCE-NAM-5.0_genomic.with_scaffolds.5S.bed
-
-cat rRNA.Zm-B73-REFERENCE-NAM-5.0_genomic.with_scaffolds.5.8S.gff | sed 's/;/\t/g' |  awk '{OFS="\t"}{print $1,$4,$5,$17"-"$9,$6,$7 }' > \
-rRNA.Zm-B73-REFERENCE-NAM-5.0_genomic.with_scaffolds.5.8S.bed
-
-cat rRNA.Zm-B73-REFERENCE-NAM-5.0_genomic.with_scaffolds.28S.gff | sed 's/;/\t/g' |  awk '{OFS="\t"}{print $1,$4,$5,$17"-"$9,$6,$7 }' > \
-rRNA.Zm-B73-REFERENCE-NAM-5.0_genomic.with_scaffolds.28S.bed
-
-cat rRNA.Zm-B73-REFERENCE-NAM-5.0_genomic.with_scaffolds.18S.gff | sed 's/;/\t/g' | awk '{OFS="\t"}{print $1,$4,$5,$17"-"$9,$6,$7 }' - > \
-rRNA.Zm-B73-REFERENCE-NAM-5.0_genomic.with_scaffolds.18S.bed
-
-
-   567 rRNA.Zm-B73-REFERENCE-NAM-5.0_genomic.with_scaffolds.18S.bed
-   556 rRNA.Zm-B73-REFERENCE-NAM-5.0_genomic.with_scaffolds.28S.bed
-   607 rRNA.Zm-B73-REFERENCE-NAM-5.0_genomic.with_scaffolds.5.8S.bed
-   697 rRNA.Zm-B73-REFERENCE-NAM-5.0_genomic.with_scaffolds.5S.bed
 
 
 
