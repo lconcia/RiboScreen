@@ -72,7 +72,7 @@ chr2	227610721	227610839	5S-ID=rna-XR_004856556.1	.	+
 for f in rRNA.Zm-B73-REFERENCE-NAM-5.0_genomic.with_scaffolds.*.bed
 do
 ls $f
-bedtools getfasta -fi /work2/03302/lconcia/stampede2/references/maize/Zm-B73-REFERENCE-NAM-5.0_without_scaffold.fa -bed  $f -fo $(basename $f bed)fasta
+bedtools getfasta -fi Zm-B73-REFERENCE-NAM-5.0_genomic.with_scaffolds.fasta -bed  $f -fo $(basename $f bed)fasta
 done
 ```
 
