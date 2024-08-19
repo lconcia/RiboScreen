@@ -21,20 +21,11 @@ To this aim, we assembled a database of the most frequent contaminants, includin
 
 ### 1) Sequences sources
 We obtained known sequences of the chosen contaminants from public repositories. 
-| Sequence group | Source |
-| ------------- | -------------- |
-| rRNA (28S, 18S, 5.8S, and 5S subunits) | retrieved from NCBI annotation. See [rRNA_retrieval.md](https://github.com/lconcia/RiboScreen/blob/main/rRNA_retrieval.md) |
-| rRNA Internal transcribed spacer (ITS) | retrieved from NCBI annotation. See [rRNA_retrieval.md](https://github.com/lconcia/RiboScreen/blob/main/rRNA_retrieval.md)  |
-| Signal recognition particle (SRP) | https://rth.dk/resources/rnp/SRPDB/rna/sequences/srprna_seqs.zip  |
-| tRNAs  | https://bioinformatics.um6p.ma/PltRNAdb/data/download/Zea_mays.Nuclear.fa.gz  |
-| Plastid genome | https://www.ncbi.nlm.nih.gov/nuccore/NC_001666.2  |
-| Mitochondrial genome | https://www.ncbi.nlm.nih.gov/nuccore/NC_007982.1  |
 
 ### 2) BLAST sequences over maize AGPv5 genome assembly
 To ensure specificity, we used them as queries to search the maize cv. B73 genome, to identify similar but non-identical sequences present in the assembly. 
 
-### 3)  Filtering and formatting of BLAST output
-See [BLAST_output_formatting](https://github.com/lconcia/RiboScreen/blob/main/BLAST_output_formatting.md)
+### 3)  Filter and format BLAST output
 
 * **28S rRNA subunit :** 28S.Zea_Mays_vs_AGPv5.querysize.above_90.merged.fasta.gz
 * **18S rRNA subunit :** 18S.Zea_Mays_vs_AGPv5.querysize.above_90.merged.fasta.gz
