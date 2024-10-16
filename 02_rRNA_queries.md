@@ -58,7 +58,7 @@ aatgatccttccgcaggttcacctacggaaaccttgttacgacttctccttcctctaaatgataaggttcaatggacttc
 ```bash
 wget https://rth.dk/resources/rnp/SRPDB/rna/sequences/srprna_seqs.zip
 ````
-#### concatenate the maize sequences
+#### 2) Concatenate the maize sequences
 ```bash
 cat \
 Zea.mays._AY108846.fasta \
@@ -79,28 +79,35 @@ Zea.mays._SDB-381124-7.fasta \
 Zea.mays._SDB-381124-8.fasta \
 Zea.mays._X14661.fasta > \
 SRP_RNA.fasta
+
+### expected output
+>Zea.mays._AY108846
+-------------------------------------------------------uguaa
+-CCCG---------------ag--------------------agUGGG-ggcau---uAA
+GGUGGUGcg------gaUGC-UUuG----cGAuGG-------------------------
 ```  
-#### linearize the multifasta
-```awk
+#### 3) Linearize the multifasta
+```bash
 cat SRP_RNA.fasta | \
-awk '/^>/ {printf("%s%s\t",(N>0?"\n":""),$0);N++;next;}
-{printf("%s",$0);} END
-{printf("\n");}' 
-```
-  
-* 3) 
+awk '/^>/ {printf("%s%s\t",(N>0?"\n":""),$0);N++;next;} \
+{printf("%s",$0);} \
+END \
+{printf("\n");}' > SRP_RNA.lin.fasta.tmp
 
-replace U with T in case-insensitive mode, and capitalize sequences (even lines)
+### expected output
+>Zea.mays._AY108846	-------------------------------------------------------uguaa-CCCG---------------ag--------------------agUGGG-ggcau---uAAGGUGGUGcg------gaUGC-UUuG----cGAuGG--------------------------------------------------------------------------------------------------------------------------------------cUUUcugGGCCU--------GGGCUCGcu-uGUGcCuu------------------------------------------------------------------------------------------------uggcCGGCCU-Gc---CCgUCCCA------------------------aGU-UG-GuGGU-------------------------------------------------------------------------------------ggCUGGc-----GGAGGCCuu-AGCggaaGCU-uuGGUCUCU--CCAGa-------------------------------CcugaaG----------------------uGGC-AGgaau-GgCGUgaggCUGgcuucaCAGagcaGCGaUc-aCU-GCCuGCUuC-CA-ACgg---------------UGGGA-GG--aua-aC-AGGCCGc------------------------------------------------------------------------------uG-CAC-u-uCGAGCCCaacucAGGCC-caGAG----------CC-UCa----------------------------------------------------------------------------UuAA-GCAg----acCAUCAUCuUU-------------------------
+(...)
+```  
+#### 4) Edit the nucleotides
+Replace U with T in case-insensitive mode, and capitalize sequences (even lines)
+```bash
+### on UNIX bash
+cat SRP_RNA.lin.fasta.tmp | sed -e'2~2 s/a/A/g' -e '2~2 s/c/C/g' -e '2~2 s/g/G/g' -e '2~2 s/[ut]/T/g' > SRP_DNA.fasta  
 
+### on MacOSX Terminal (specific version of sed)
+cat SRP_RNA.lin.fasta.tmp | gsed -e'2~2 s/a/A/g' -e '2~2 s/c/C/g' -e '2~2 s/g/G/g' -e '2~2 s/[ut]/T/g' > SRP_DNA.fasta
 ```
-| \
-sed -e 's/-//g' | \
-tr "\t" "\n"  | \
-sed -e'2\~2 s/a/A/g' -e '2\~2 s/c/C/g' -e '2\~2 s/g/G/g' -e '2\~2 s/[ut]/T/g' > SRP_RNA.lin.fasta 
-```
-
- 
-* 3) count the characters in the sequences (even rows) and add it to the sequence name (previous odd row)
+#### 5) Count the characters in the sequences (even rows) and add it to the sequence name (previous odd row)
 
 ```bash
 #!/bin/bash
