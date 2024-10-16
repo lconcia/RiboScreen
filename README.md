@@ -1,16 +1,14 @@
 # RiboScreen
-
 RiboScreen is a database of maize RNA-Seq contaminants.
 
 ## Background
-
 Ribosomal RNA (rRNA) is the most abundant RNA species in the cell, accounting for approximately 90% of total RNA. Removing the rRNA fraction before the construction of RNA-Seq libraries is a critical step to enhance the detection of the remaining, most informative 10% of the transcriptome (O’Neil et al. 2013).
 
 The conventional method to overcome this issue is to selectively target the polyadenylated transcripts using oligo(dT) primers during the reverse transcription. Priming with oligo (dT), though, tends to skew the sequencing coverage towards the polyadenylated 3’ end of transcripts, and fails to reveal the transcripts missing the poly-A tail, such as noncoding RNAs (ncRNAs) (Barret et al., 2021).
 
 An alternative approach, ribodepletion, typically removes the rRNA by oligo-hybridization methods, that allows reverse transcription with random primers, producing a more uniform coverage, and, more importantly, enables the detection of ncRNAs. However, ribodepletion requires species-specific oligonucleotides, that are commonly designed to complement mammalian ribosomal subunits. Universal ribodepletion oligonucleotides do not exist for plant and fungal RNA samples so that, for each different species, custom oligonucleotides need to be designed and validated. Plant ribodepletion kits are commercially available, but, in our hands, none achieves the full elimination of all rRNAs.
 
-## Post-sequencing contaminant removal 
+## Post-sequencing removal of contaminants
 To integrate the physical separation of rDNA before sequencing and further improve the detection of low-abundance transcripts, we used the software SortMeRNA (Kopylova et al., 2012) to implement a post-sequencing filtration strategy to delete the short reads matching contaminant sequences from samples of our interest, derived from root tips of Zea mays cv. B73. 
 
 To this aim, we assembled a database of the most frequent contaminants, including all nuclear ribosomal subunits (5S, 5.8S, 18S, 28S), the internal transcribed spacer (ITS) region, chloroplast and mitochondrial rRNAs, tRNAs, and the signal recognition particle (7SL/SRP). The database was used in to remove contaminants using the tool SortMeRNA https://github.com/sortmerna/sortmerna.
