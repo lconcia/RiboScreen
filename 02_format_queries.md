@@ -2,7 +2,28 @@
 This file describe the identification of rRNA sequences from B73 genome assembly
 
 ##  rRNAs (ribosomal  subunits)
-#### 1) Extract rRNA features from the annotation
+#### 1) Retrieve and format the annotation 
+```bash
+## retrieve the annotation from NCBI.
+wget https://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/902/167/145/GCF_902167145.1_Zm-B73-REFERENCE-NAM-5.0/GCF_902167145.1_Zm-B73-REFERENCE-NAM-5.0_genomic.gff.gz
+
+## update the chromosome names.
+gunzip -c GCF_902167145.1_Zm-B73-REFERENCE-NAM-5.0_genomic.gff.gz | \
+sed  -e 's/NC_050096.1/chr1/g;' \
+     -e 's/NC_050097.1/chr2/g;' \
+     -e 's/NC_050098.1/chr3/g;' \
+     -e 's/NC_050099.1/chr4/g;' \
+     -e 's/NC_050100.1/chr5/g;' \
+     -e 's/NC_050101.1/chr6/g;' \
+     -e 's/NC_050102.1/chr7/g;' \
+     -e 's/NC_050103.1/chr8/g;' \
+     -e 's/NC_050104.1/chr9/g;' \
+     -e 's/NC_050105.1/chr10/g;' \
+     -e 's/NC_007982.1/chrM/g;' \
+     -e 's/NC_001666.2/chrC/g' | grep -v 'chrC\|chrM' >  \
+     Zm-B73-REFERENCE-NAM-5.0_genomic.with_scaffolds.gff
+```
+#### 2) Extract rRNA features from the annotation
 ```bash
 $ awk '$3=="rRNA" ' Zm-B73-REFERENCE-NAM-5.0_genomic.with_scaffolds.gff > rRNA.Zm-B73-REFERENCE-NAM-5.0_genomic.with_scaffolds.gff
 
@@ -13,7 +34,7 @@ chr2 cmsearch rRNA 227610721 227610839 . + . ID=rna-XR_004856556.1;Parent=gene-L
 (...)
 ```
  
-#### 2) Extract specific rRNA species 
+#### 3) Extract specific rRNA species 
 ```bash
 $ grep  18S rRNA.Zm-B73-REFERENCE-NAM-5.0_genomic.with_scaffolds.gff > rRNA.Zm-B73-REFERENCE-NAM-5.0_genomic.with_scaffolds.18S.gff
 $ grep  28S rRNA.Zm-B73-REFERENCE-NAM-5.0_genomic.with_scaffolds.gff > rRNA.Zm-B73-REFERENCE-NAM-5.0_genomic.with_scaffolds.28S.gff
@@ -21,7 +42,7 @@ $ grep   5S rRNA.Zm-B73-REFERENCE-NAM-5.0_genomic.with_scaffolds.gff > rRNA.Zm-B
 $ grep 5.8S rRNA.Zm-B73-REFERENCE-NAM-5.0_genomic.with_scaffolds.gff > rRNA.Zm-B73-REFERENCE-NAM-5.0_genomic.with_scaffolds.5.8S.gff
 ```
  
-#### 3) convert from GFF to BED files 
+#### 4) convert from GFF to BED files 
 ```bash
 $ cat rRNA.Zm-B73-REFERENCE-NAM-5.0_genomic.with_scaffolds.5S.gff | sed 's/;/\t/g' | awk '{OFS="\t"}{print $1,$4,$5,$17"-"$9,$6,$7 }' > rRNA.Zm-B73-REFERENCE-NAM-5.0_genomic.with_scaffolds.5S.bed
 $ cat rRNA.Zm-B73-REFERENCE-NAM-5.0_genomic.with_scaffolds.5.8S.gff | sed 's/;/\t/g' |  awk '{OFS="\t"}{print $1,$4,$5,$17"-"$9,$6,$7 }' > rRNA.Zm-B73-REFERENCE-NAM-5.0_genomic.with_scaffolds.5.8S.bed
@@ -35,7 +56,7 @@ chr2	227610721	227610839	5S-ID=rna-XR_004856556.1	.	+
 chr2	227611040	227611158	5S-ID=rna-XR_004856667.1	.	+
 (...)
 ```
-#### 4) Extract the corresponding rRNA sequences from the genome 
+#### 5) Extract the corresponding rRNA sequences from the genome 
 ```bash
 for f in rRNA.Zm-B73-REFERENCE-NAM-5.0_genomic.with_scaffolds.*.bed
 do
