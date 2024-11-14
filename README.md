@@ -72,7 +72,10 @@ sortmerna --threads 16 --out2 True --zip-out Yes --fastx true --blast '1 cigar q
 ```
 
 ### References
-<sub> - O'Neil D, Glowatz H, Schlumpberger M. Ribosomal RNA depletion for efficient use of RNA-seq capacity. Curr Protoc Mol Biol. 2013 Jul;Chapter 4:Unit 4.19. doi: 10.1002/0471142727.mb0419s103. PMID: 23821444.</sub> 
 
-<sub> - Barrett A, McWhirter R, Taylor SR, Weinreb A, Miller DM, Hammarlund M. A head-to-head comparison of ribodepletion and polyA selection approaches for Caenorhabditis elegans low input RNA-sequencing libraries. G3 (Bethesda). 2021 Jul 14;11(7):jkab121. doi: 10.1093/g3journal/jkab121. PMID: 33856427; PMCID: PMC8495925.</sub> 
+<sub>O'Neil D, Glowatz H, Schlumpberger M. Ribosomal RNA depletion for efficient use of RNA-seq capacity. Curr Protoc Mol Biol. 2013;Chapter 4. doi:10.1002/0471142727.mb0419s103</sub>
+
+<sub>Barrett A, McWhirter R, Taylor SR, Weinreb A, Miller DM, Hammarlund M. A head-to-head comparison of ribodepletion and polyA selection approaches for Caenorhabditis elegans low input RNA-sequencing libraries. G3 (Bethesda). 2021;11(7):jkab121. doi:10.1093/g3journal/jkab121</sub> 
+
+
  
