@@ -77,5 +77,5 @@ sortmerna --threads 16 --out2 True --zip-out Yes --fastx true --blast '1 cigar q
 
 <sub>Barrett A, McWhirter R, Taylor SR, Weinreb A, Miller DM, Hammarlund M. A head-to-head comparison of ribodepletion and polyA selection approaches for Caenorhabditis elegans low input RNA-sequencing libraries. G3 (Bethesda). 2021;11(7):jkab121. doi:10.1093/g3journal/jkab121</sub> 
 
-
+<sub>Kopylova E, Noé L, Touzet H. SortMeRNA: fast and accurate filtering of ribosomal RNAs in metatranscriptomic data. Bioinformatics. 2012;28(24):3211-3217. doi:10.1093/bioinformatics/bts611</sub>
  
