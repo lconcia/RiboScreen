@@ -1,5 +1,5 @@
 # RiboScreen
-RiboScreen is a database of maize RNA-Seq contaminants.
+RiboScreen is a database of RNA-Seq contaminants in maize.
 
 ## Background
 Ribosomal RNA (rRNA) is the most abundant RNA species in the cell, accounting for approximately 90% of total RNA. Removing the rRNA fraction before the construction of RNA-Seq libraries is a critical step to enhance the detection of the remaining, most informative 10% of the transcriptome (O’Neil et al. 2013).
