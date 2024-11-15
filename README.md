@@ -29,7 +29,7 @@ We obtained known sequences of the chosen contaminants from public repositories.
 
 ### 2) BLAST sequences over maize AGPv5 genome assembly
 To ensure specificity, we identified contaminants sequences in the genome of maize cv. B73.
-
+See [04_BLAST_over_B73_AGPv5.md](https://github.com/lconcia/RiboScreen/blob/main/04_BLAST_over_B73_AGPv5.md#04_blast_over_b73_agpv5) |
 ### 3)  Filtering and formatting of BLAST output
 See [BLAST_output_formatting](https://github.com/lconcia/RiboScreen/blob/main/BLAST_output_formatting.md)
 
