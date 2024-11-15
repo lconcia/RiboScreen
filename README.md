@@ -20,8 +20,8 @@ To this aim, we assembled a database of the most frequent contaminants, includin
 We obtained known sequences of the chosen contaminants from public repositories. 
 | Sequence group | Source |
 | ------------- | -------------- |
-| rRNA (28S, 18S, 5.8S, and 5S subunits) | retrieved from [NCBI annotation](https://github.com/lconcia/RiboScreen/blob/main/01_format_B73_genome.md#annotation-formatting) |
-| rRNA Internal transcribed spacer (ITS) | retrieved from [NCBI annotation](https://github.com/lconcia/RiboScreen/blob/main/01_format_B73_genome.md#annotation-formatting) |
+| rRNA (28S, 18S, 5.8S, and 5S subunits) |[NCBI annotation](https://github.com/lconcia/RiboScreen/blob/main/01_format_B73_genome.md#annotation-formatting) |
+| rRNA Internal transcribed spacer (ITS) |[NCBI annotation](https://github.com/lconcia/RiboScreen/blob/main/01_format_B73_genome.md#annotation-formatting) |
 | Signal recognition particle (SRP) | https://rth.dk/resources/rnp/SRPDB/rna/sequences/srprna_seqs.zip  |
 | tRNAs  | https://bioinformatics.um6p.ma/PltRNAdb/data/download/Zea_mays.Nuclear.fa.gz  |
 | Plastid genome | https://www.ncbi.nlm.nih.gov/nuccore/NC_001666.2  |
