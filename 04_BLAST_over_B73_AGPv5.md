@@ -6,15 +6,16 @@
 
 AB-BLAST is available <ins> at no cost</ins> for academic users at this address https://blast.advbiocomp.com/ 
 
-#### 2) Creation of the BLAST database
+#### 2) Create the BLAST database
 
 ```bash
 xdformat -n Zm-B73-REFERENCE-NAM-5.0_genomic.with_scaffolds.no_names.fasta
-```
+
 ##### expected output
-```bash
  11K   Zm-B73-REFERENCE-NAM-5.0_genomic.with_scaffolds.no_names.fasta.xnd
 521M   Zm-B73-REFERENCE-NAM-5.0_genomic.with_scaffolds.no_names.fasta.xns
 6.2K   Zm-B73-REFERENCE-NAM-5.0_genomic.with_scaffolds.no_names.fasta.xnt
 ```
+##### expected output
+ 
 #### 1) BLAST database
