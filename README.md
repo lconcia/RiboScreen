@@ -20,7 +20,7 @@ To this aim, we assembled a database of the most frequent contaminants, includin
 We obtained known sequences of the chosen contaminants from public repositories. 
 | Sequence group | Source |
 | ------------- | -------------- |
-| rRNA (28S, 18S, 5.8S, and 5S subunits) | retrieved from NCBI annotation. See [rRNA_retrieval.md](https://github.com/lconcia/RiboScreen/blob/main/rRNA_retrieval.md) |
+| rRNA (28S, 18S, 5.8S, and 5S subunits) | retrieved from NCBI annotation. See [Download NCBI annotation](https://github.com/lconcia/RiboScreen/blob/main/01_format_B73_genome.md#1-download-the-annotation-from-ncbi) |
 | rRNA Internal transcribed spacer (ITS) | retrieved from NCBI annotation. See [rRNA_retrieval.md](https://github.com/lconcia/RiboScreen/blob/main/rRNA_retrieval.md)  |
 | Signal recognition particle (SRP) | https://rth.dk/resources/rnp/SRPDB/rna/sequences/srprna_seqs.zip  |
 | tRNAs  | https://bioinformatics.um6p.ma/PltRNAdb/data/download/Zea_mays.Nuclear.fa.gz  |
