@@ -71,12 +71,56 @@ chr6:16745916-16749299	chr6	0.	1	6596.15	10129	3383	3381	3381	1	99.94	99.94	0	0	
 chr6:16745916-16749299	chr6	0.	1	6596.15	10129	3383	3381	3381	1	99.94	99.94	0	0	1	1	+1	1	3383	+1	17214276	17217657	(3)
 ```
 
+#### 4) filter the BLAST hits by size, select only genomic chromosomes, and format as BED file.
+
+##### #   To make a bed we need to print the following columns  (https://blast.advbiocomp.com/doc/tabular.html) :
+
+*  2  = sid subject : sequence identifier (chromosome)
+* 21  =  sstart     : the starting coordinate of the alignment in the subject sequence
+* 22  =  send       : the ending coordinate of the alignment in the subject sequence
+* 11  =  pcident    : percent identity over the alignment length (as a fraction of alignlen)
 
 
-## filter ONLY by size
-      
-Chl     150 bp -> length of one read
-Mt      150 bp -> length of one read
+##### #    for Mt and Chl min 150 bp (length of one read)
+
+```bash
+cat Mt.vs_AGPv5.reblast.out  | awk 'BEGIN{OFS="\t"}{if ($22-$21>=150) print $2,$21,$22,$11,($22-$21) }' | grep  -v 'chrM\|chrC' | sort -k1,1V -k2,2n > Mt.vs_AGPv5.bed
+cat Chl.vs_AGPv5.reblast.out | awk 'BEGIN{OFS="\t"}{if ($22-$21>=150) print $2,$21,$22,$11,($22-$21) }' | grep  -v 'chrM\|chrC' | sort -k1,1V -k2,2n > Chl.vs_AGPv5.bed
+```
+##### #    for tRNA min 59 bp (length of shortest tRNA in maize)
+
+```bash
+cat Mt.vs_AGPv5.reblast.out  | awk 'BEGIN{OFS="\t"}{if ($22-$21>=150) print $2,$21,$22,$11,($22-$21) }' | grep  -v 'chrM\|chrC' | sort -k1,1V -k2,2n > Mt.vs_AGPv5.bed
+
+```
+
+##### #    for tRNA min 59 bp (length of shortest tRNA in maize)
+
+```bash
+cat Mt.vs_AGPv5.reblast.out  | awk 'BEGIN{OFS="\t"}{if ($22-$21>=59) print $2,$21,$22,$11,($22-$21) }' | grep  -v 'chrM\|chrC' | sort -k1,1V -k2,2n > tRNAs.vs_AGPv5.bed
+
+```
+
+
+
+
+
+
+## we do not need  % ratio query (column5) and not the query name:start-end (like in rDNA subunits) - we may need it for tRNAs
+
+## Need to filter hits in the chloroplast, which was included in the database (genome with scaffolds )
+
+grep  -v 'chrM\|chrC' /work2/03302/lconcia/references/maize/sortMeRNA_db/tRNAs_db/tRNAs.Nuclear_vs_AGPv5.reblast.out | \
+awk 'BEGIN{OFS="\t"}{if ($22-$21>=59) print $2,$21,$22,$11,($22-$21) }' | sort -k1,1V -k2,2n >/work2/03302/lconcia/references/maize/sortMeRNA_db/tRNAs_db/tRNAs.vs_AGPv5.bed
+
+
+
+
+
+
+##### Chl, min 150 bp (length of one read)
+
+
 tRNAs    59 bp -> length of tRNA
 
 
