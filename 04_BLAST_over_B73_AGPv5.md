@@ -71,57 +71,79 @@ chr6:16745916-16749299	chr6	0.	1	6596.15	10129	3383	3381	3381	1	99.94	99.94	0	0	
 chr6:16745916-16749299	chr6	0.	1	6596.15	10129	3383	3381	3381	1	99.94	99.94	0	0	1	1	+1	1	3383	+1	17214276	17217657	(3)
 ```
 
-#### 4) filter the BLAST hits by size, select only genomic chromosomes, and format as BED file.
+#### 5) filter the BLAST hits by size, select only genomic chromosomes, and format as BED file.
 
-##### #   To make a bed we need to print the following columns  (https://blast.advbiocomp.com/doc/tabular.html) :
+#### #   To make a bed we need to print the following columns  (https://blast.advbiocomp.com/doc/tabular.html) :
 
 *  2  = sid subject : sequence identifier (chromosome)
 * 21  =  sstart     : the starting coordinate of the alignment in the subject sequence
 * 22  =  send       : the ending coordinate of the alignment in the subject sequence
 * 11  =  pcident    : percent identity over the alignment length (as a fraction of alignlen)
-
-
-##### #    for Mt and Chl min 150 bp (length of one read)
+#### #    for Mt and Chl min 150 bp (length of one read)
+```bash
+$ cat Mt.vs_AGPv5.reblast.out  | awk 'BEGIN{OFS="\t"}{if ($22-$21>=150) print $2,$21,$22,$11,($22-$21) }' | grep  -v 'chrM\|chrC' | sort -k1,1V -k2,2n > Mt.vs_AGPv5.bed
+$ cat Chl.vs_AGPv5.reblast.out | awk 'BEGIN{OFS="\t"}{if ($22-$21>=150) print $2,$21,$22,$11,($22-$21) }' | grep  -v 'chrM\|chrC' | sort -k1,1V -k2,2n > Chl.vs_AGPv5.bed
+```
+#### #    for tRNA min 59 bp (length of shortest tRNA in maize)
+```bash
+$ cat tRNAs.vs_AGPv5.reblast.out  | awk 'BEGIN{OFS="\t"}{if ($22-$21>=59) print $2,$21,$22,$11,($22-$21) }' | grep  -v 'chrM\|chrC' | sort -k1,1V -k2,2n > tRNAs.vs_AGPv5.bed
+```
+#### #    for rDNA subunits, filter hits long at least 90% of the length of the respective query. We will obtain the lenght of the query from column 1 (i.e. chr6:16749525-16749680 )
+*  1  = qid : query sequence identifier (sequence name in the fasta file)
 
 ```bash
-cat Mt.vs_AGPv5.reblast.out  | awk 'BEGIN{OFS="\t"}{if ($22-$21>=150) print $2,$21,$22,$11,($22-$21) }' | grep  -v 'chrM\|chrC' | sort -k1,1V -k2,2n > Mt.vs_AGPv5.bed
-cat Chl.vs_AGPv5.reblast.out | awk 'BEGIN{OFS="\t"}{if ($22-$21>=150) print $2,$21,$22,$11,($22-$21) }' | grep  -v 'chrM\|chrC' | sort -k1,1V -k2,2n > Chl.vs_AGPv5.bed
+$ cat  28S.Zea_Mays_vs_AGPv5.reblast.out | sed -e 's/[-]/\t/1' -e 's/[:]/\t/1' | awk '{if ((($24-$23)/($3-$2))>=0.90) print $0"\t"($3-$2)"\t"($24-$23)"\t"($24-$23)/($3-$2) }' - > 28S.Zea_Mays_vs_AGPv5.querysize.above_90.tab
+$ cat  18S.Zea_Mays_vs_AGPv5.reblast.out | sed -e 's/[-]/\t/1' -e 's/[:]/\t/1' | awk '{if ((($24-$23)/($3-$2))>=0.90) print $0"\t"($3-$2)"\t"($24-$23)"\t"($24-$23)/($3-$2) }' - > 18S.Zea_Mays_vs_AGPv5.querysize.above_90.tab
+$ cat 5.8S.Zea_Mays_vs_AGPv5.reblast.out | sed -e 's/[-]/\t/1' -e 's/[:]/\t/1' | awk '{if ((($24-$23)/($3-$2))>=0.90) print $0"\t"($3-$2)"\t"($24-$23)"\t"($24-$23)/($3-$2) }' - > 5.8S.Zea_Mays_vs_AGPv5.querysize.above_90.tab
+$ cat   5S.Zea_Mays_vs_AGPv5.reblast.out | sed -e 's/[-]/\t/1' -e 's/[:]/\t/1' | awk '{if ((($24-$23)/($3-$2))>=0.90) print $0"\t"($3-$2)"\t"($24-$23)"\t"($24-$23)/($3-$2) }' - > 5S.Zea_Mays_vs_AGPv5.querysize.above_90.tab
 ```
-##### #    for tRNA min 59 bp (length of shortest tRNA in maize)
+Format as bed file selecting these columns
+*  4 = sid : subject (database) sequence identifier
+* 13 = pcident : percent identity over the alignment length (as a fraction of alignlen)
+* 23 = sstart  : the starting coordinate of the alignment in the subject sequence
+* 24 = send  : the ending coordinate of the alignment in the subject sequence
+* 28 = % of query coverage 
+* 1 + 2 + 3 = query name
+```bash
+$ cat 28S.Zea_Mays_vs_AGPv5.querysize.above_90.tab | awk 'BEGIN{OFS="\t"}{print $4,$23,$24,$13,$28,$1":"$2"-"$3}' | sort -k1,1 -k2,2n > 28S.Zea_Mays_vs_AGPv5.querysize.above_90.bed
+$ cat 18S.Zea_Mays_vs_AGPv5.querysize.above_90.tab | awk 'BEGIN{OFS="\t"}{print $4,$23,$24,$13,$28,$1":"$2"-"$3}' | sort -k1,1 -k2,2n > 18S.Zea_Mays_vs_AGPv5.querysize.above_90.bed
+$ cat 5.8S.Zea_Mays_vs_AGPv5.querysize.above_90.tab | awk 'BEGIN{OFS="\t"}{print $4,$23,$24,$13,$28,$1":"$2"-"$3}' | sort -k1,1 -k2,2n > 5.8S.Zea_Mays_vs_AGPv5.querysize.above_90.bed
+$ cat 5S.Zea_Mays_vs_AGPv5.querysize.above_90.tab | awk 'BEGIN{OFS="\t"}{print $4,$23,$24,$13,$28,$1":"$2"-"$3}' | sort -k1,1 -k2,2n > 5S.Zea_Mays_vs_AGPv5.querysize.above_90.bed
+```
+Merge oberlapping hits, keep the value of % identity.
 
 ```bash
-cat Mt.vs_AGPv5.reblast.out  | awk 'BEGIN{OFS="\t"}{if ($22-$21>=150) print $2,$21,$22,$11,($22-$21) }' | grep  -v 'chrM\|chrC' | sort -k1,1V -k2,2n > Mt.vs_AGPv5.bed
-
-```
-
-##### #    for tRNA min 59 bp (length of shortest tRNA in maize)
-
-```bash
-cat Mt.vs_AGPv5.reblast.out  | awk 'BEGIN{OFS="\t"}{if ($22-$21>=59) print $2,$21,$22,$11,($22-$21) }' | grep  -v 'chrM\|chrC' | sort -k1,1V -k2,2n > tRNAs.vs_AGPv5.bed
-
+$ bedtools merge -c 4,4,4 -o max,median,count -i 28S.Zea_Mays_vs_AGPv5.querysize.above_90.bed > 28S.Zea_Mays_vs_AGPv5.querysize.above_90.merged.bed
+$ bedtools merge -c 4,4,4 -o max,median,count -i 18S.Zea_Mays_vs_AGPv5.querysize.above_90.bed > 18S.Zea_Mays_vs_AGPv5.querysize.above_90.merged.bed
+$ bedtools merge -c 4,4,4 -o max,median,count -i  5.8S.Zea_Mays_vs_AGPv5.querysize.above_90.bed > 5.8S.Zea_Mays_vs_AGPv5.querysize.above_90.merged.bed
+$ bedtools merge -c 4,4,4 -o max,median,count -i  5S.Zea_Mays_vs_AGPv5.querysize.above_90.bed >   5S.Zea_Mays_vs_AGPv5.querysize.above_90.merged.bed
 ```
 
 
 
 
 
+
+for f in *.Zea_Mays_vs_AGPv5.reblast.out
+do
+cat $f | sed -e 's/[-]/\t/1' -e 's/[:]/\t/1' | awk '{if ((($24-$23)/($3-$2))>=0.90) print  $0"\t"($3-$2)"\t"($24-$23)"\t"($24-$23)/($3-$2) }' - > `basename $f .reblast.out`.querysize.above_90.tab
+done
+
+
+ 
+* 5S   = 170 bp
+* 5.8S = 149 bp
+* 18S = 1411 bp
+* 28S = 3265 bp
+
+##### #   
 
 ## we do not need  % ratio query (column5) and not the query name:start-end (like in rDNA subunits) - we may need it for tRNAs
 
-## Need to filter hits in the chloroplast, which was included in the database (genome with scaffolds )
+ 
+ 
 
-grep  -v 'chrM\|chrC' /work2/03302/lconcia/references/maize/sortMeRNA_db/tRNAs_db/tRNAs.Nuclear_vs_AGPv5.reblast.out | \
-awk 'BEGIN{OFS="\t"}{if ($22-$21>=59) print $2,$21,$22,$11,($22-$21) }' | sort -k1,1V -k2,2n >/work2/03302/lconcia/references/maize/sortMeRNA_db/tRNAs_db/tRNAs.vs_AGPv5.bed
-
-
-
-
-
-
-##### Chl, min 150 bp (length of one read)
-
-
-tRNAs    59 bp -> length of tRNA
+ 
 
 
 
