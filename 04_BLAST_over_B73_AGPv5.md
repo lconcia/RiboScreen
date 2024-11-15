@@ -8,7 +8,7 @@ AB-BLAST is available <ins> at no cost</ins> for academic users at this address 
 
 #### 2) Create the BLAST database
 ```bash
-xdformat -n Zm-B73-REFERENCE-NAM-5.0_genomic.with_scaffolds.no_names.fasta
+$ xdformat -n Zm-B73-REFERENCE-NAM-5.0_genomic.with_scaffolds.no_names.fasta
 
 ##### expected output
  11K   Zm-B73-REFERENCE-NAM-5.0_genomic.with_scaffolds.no_names.fasta.xnd
@@ -19,35 +19,38 @@ xdformat -n Zm-B73-REFERENCE-NAM-5.0_genomic.with_scaffolds.no_names.fasta
 
 ```bash
 ##### 28S rDNA
-blastn Zm-B73-REFERENCE-NAM-5.0_genomic.with_scaffolds.no_names.fasta rRNA.Zm-B73-REFERENCE-NAM-5.0_genomic.with_scaffolds.28S.fasta cpus=24 M=+3 N=-7 E=1e-16  mformat=2 links hspsepQmax=100 hspsepSmax=3500 sump pingpong warnings > 28S.Zea_Mays_vs_AGPv5.reblast.out
+$ blastn Zm-B73-REFERENCE-NAM-5.0_genomic.with_scaffolds.no_names.fasta rRNA.Zm-B73-REFERENCE-NAM-5.0_genomic.with_scaffolds.28S.fasta cpus=24 M=+3 N=-7 E=1e-16  mformat=2 links hspsepQmax=100 hspsepSmax=3500 sump pingpong warnings > 28S.Zea_Mays_vs_AGPv5.reblast.out
 
 ##### 18S rDNA
-blastn Zm-B73-REFERENCE-NAM-5.0_genomic.with_scaffolds.no_names.fasta rRNA.Zm-B73-REFERENCE-NAM-5.0_genomic.with_scaffolds.18S.fasta cpus=24 M=+3 N=-7 E=1e-16  mformat=2 links hspsepQmax=100 hspsepSmax=3500 sump pingpong warnings > 18S.Zea_Mays_vs_AGPv5.reblast.out  
+$ blastn Zm-B73-REFERENCE-NAM-5.0_genomic.with_scaffolds.no_names.fasta rRNA.Zm-B73-REFERENCE-NAM-5.0_genomic.with_scaffolds.18S.fasta cpus=24 M=+3 N=-7 E=1e-16  mformat=2 links hspsepQmax=100 hspsepSmax=3500 sump pingpong warnings > 18S.Zea_Mays_vs_AGPv5.reblast.out  
 
 ##### 5.8S rDNA
-blastn Zm-B73-REFERENCE-NAM-5.0_genomic.with_scaffolds.no_names.fasta rRNA.Zm-B73-REFERENCE-NAM-5.0_genomic.with_scaffolds.5.8S.fasta cpus=24 M=+3 N=-7 E=1e-16  mformat=2 links hspsepQmax=100 hspsepSmax=3500 sump pingpong warnings > 5.8S.Zea_Mays_vs_AGPv5.reblast.out  
+$ blastn Zm-B73-REFERENCE-NAM-5.0_genomic.with_scaffolds.no_names.fasta rRNA.Zm-B73-REFERENCE-NAM-5.0_genomic.with_scaffolds.5.8S.fasta cpus=24 M=+3 N=-7 E=1e-16  mformat=2 links hspsepQmax=100 hspsepSmax=3500 sump pingpong warnings > 5.8S.Zea_Mays_vs_AGPv5.reblast.out  
 
 ##### 5S rDNA
-blastn Zm-B73-REFERENCE-NAM-5.0_genomic.with_scaffolds.no_names.fasta rRNA.Zm-B73-REFERENCE-NAM-5.0_genomic.with_scaffolds.5S.fasta cpus=24 M=+3 N=-7 E=1e-16  mformat=2 links hspsepQmax=100 hspsepSmax=3500 sump pingpong warnings > 5S.Zea_Mays_vs_AGPv5.reblast.out
+$ blastn Zm-B73-REFERENCE-NAM-5.0_genomic.with_scaffolds.no_names.fasta rRNA.Zm-B73-REFERENCE-NAM-5.0_genomic.with_scaffolds.5S.fasta cpus=24 M=+3 N=-7 E=1e-16  mformat=2 links hspsepQmax=100 hspsepSmax=3500 sump pingpong warnings > 5S.Zea_Mays_vs_AGPv5.reblast.out
 
 ##### SRP
-blastn Zm-B73-REFERENCE-NAM-5.0_genomic.with_scaffolds.no_names.fasta SRP_RNA.lin.lenght.fasta cpus=48 M=+3 N=-7 E=1e-16 mformat=2 links sump pingpong warnings > SRP.Zea_Mays_vs_AGPv5.reblast.out
+$ blastn Zm-B73-REFERENCE-NAM-5.0_genomic.with_scaffolds.no_names.fasta SRP_RNA.lin.lenght.fasta cpus=48 M=+3 N=-7 E=1e-16 mformat=2 links sump pingpong warnings > SRP.Zea_Mays_vs_AGPv5.reblast.out
 
 ##### tRNAs 
-blastn Zm-B73-REFERENCE-NAM-5.0_genomic.with_scaffolds.no_names.fasta Zea_mays.Nuclear.fa cpus=24 M=+3 N=-7 E=1e-16 mformat=2 links hspsepQmax=30 hspsepSmax=30 sump pingpong warnings > tRNAs.Nuclear_vs_AGPv5.reblast.out 
+$ blastn Zm-B73-REFERENCE-NAM-5.0_genomic.with_scaffolds.no_names.fasta Zea_mays.Nuclear.fa cpus=24 M=+3 N=-7 E=1e-16 mformat=2 links hspsepQmax=30 hspsepSmax=30 sump pingpong warnings > tRNAs.Nuclear_vs_AGPv5.reblast.out 
 
 ##### Mitochondrial genome 
-blastn Zm-B73-REFERENCE-NAM-5.0_genomic.with_scaffolds.no_names.fasta Mt.NC_007982.1.fasta cpus=24 M=+3 N=-7 E=1e-16 mformat=2 links sump pingpong warnings >  Mt.vs_AGPv5.reblast.out 
+$ blastn Zm-B73-REFERENCE-NAM-5.0_genomic.with_scaffolds.no_names.fasta Mt.NC_007982.1.fasta cpus=24 M=+3 N=-7 E=1e-16 mformat=2 links sump pingpong warnings >  Mt.vs_AGPv5.reblast.out 
 
 ##### Chloroplast genome
-blastn Zm-B73-REFERENCE-NAM-5.0_genomic.with_scaffolds.no_names.fasta Chl.NC_001666.2.fasta cpus=24 M=+3 N=-7 E=1e-16 mformat=2 links sump pingpong warnings > Chl.vs_AGPv5.reblast.out
+$ blastn Zm-B73-REFERENCE-NAM-5.0_genomic.with_scaffolds.no_names.fasta Chl.NC_001666.2.fasta cpus=24 M=+3 N=-7 E=1e-16 mformat=2 links sump pingpong warnings > Chl.vs_AGPv5.reblast.out
 ```
 
 #### 4) inspect the output
 
 ```bash
+##### count the number of homologous sequences
 
+$ wc -l *vs_AGPv5.reblast.out
 
+##### expected output
    558147 28S.Zea_Mays_vs_AGPv5.reblast.out
    408654 18S.Zea_Mays_vs_AGPv5.reblast.out
    494053 5S.Zea_Mays_vs_AGPv5.reblast.out
@@ -58,8 +61,14 @@ blastn Zm-B73-REFERENCE-NAM-5.0_genomic.with_scaffolds.no_names.fasta Chl.NC_001
     70962 Chl.vs_AGPv5.reblast.out
 
 
+##### visualize one file
 
+$ head -n3 28S.Zea_Mays_vs_AGPv5.reblast.out
 
+##### expected output
+chr6:16745916-16749299	chr6	0.	1	6609.18	10149	3383	3383	3383	0	100.00	100.00	0	0	0	0	+1	1	3383	+1	16745917	16749299	(1)
+chr6:16745916-16749299	chr6	0.	1	6596.15	10129	3383	3381	3381	1	99.94	99.94	0	0	1	1	+1	1	3383	+1	17223070	17226451	(2)
+chr6:16745916-16749299	chr6	0.	1	6596.15	10129	3383	3381	3381	1	99.94	99.94	0	0	1	1	+1	1	3383	+1	17214276	17217657	(3)
 ```
 
 
