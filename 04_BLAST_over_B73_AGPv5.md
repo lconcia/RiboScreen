@@ -27,6 +27,9 @@ blastn Zm-B73-REFERENCE-NAM-5.0_genomic.with_scaffolds.no_names.fasta Mt.NC_0079
 ##### Chloroplast genome
 blastn Zm-B73-REFERENCE-NAM-5.0_genomic.with_scaffolds.no_names.fasta Chl.NC_001666.2.fasta cpus=24 M=+3 N=-7 E=1e-16 mformat=2 links sump pingpong warnings > Chl.vs_AGPv5.reblast.out
 
+##### SRP
+blastn Zm-B73-REFERENCE-NAM-5.0_genomic.with_scaffolds.no_names.fasta SRP_RNA.lin.lenght.fasta cpus=48 M=+3 N=-7 E=1e-16 mformat=2 links sump pingpong warnings > SRP.Zea_Mays_vs_AGPv5.reblast.out  
+
 ##### 28S rDNA
 blastn Zm-B73-REFERENCE-NAM-5.0_genomic.with_scaffolds.no_names.fasta rRNA.Zm-B73-REFERENCE-NAM-5.0_genomic.with_scaffolds.28S.fasta cpus=24 M=+3 N=-7 E=1e-16  mformat=2 links hspsepQmax=100 hspsepSmax=3500 sump pingpong warnings > 28S.Zea_Mays_vs_AGPv5.reblast.out
 
