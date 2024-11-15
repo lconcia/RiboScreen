@@ -7,7 +7,6 @@
 AB-BLAST is available <ins> at no cost</ins> for academic users at this address https://blast.advbiocomp.com/ 
 
 #### 2) Create the BLAST database
-
 ```bash
 xdformat -n Zm-B73-REFERENCE-NAM-5.0_genomic.with_scaffolds.no_names.fasta
 
@@ -15,7 +14,16 @@ xdformat -n Zm-B73-REFERENCE-NAM-5.0_genomic.with_scaffolds.no_names.fasta
  11K   Zm-B73-REFERENCE-NAM-5.0_genomic.with_scaffolds.no_names.fasta.xnd
 521M   Zm-B73-REFERENCE-NAM-5.0_genomic.with_scaffolds.no_names.fasta.xns
 6.2K   Zm-B73-REFERENCE-NAM-5.0_genomic.with_scaffolds.no_names.fasta.xnt
+``` 
+#### 3) BLAST the queries against the database
+
+```bash
+##### tRNAs 
+blastn Zm-B73-REFERENCE-NAM-5.0_genomic.with_scaffolds.no_names.fasta Zea_mays.Nuclear.fa cpus=24 M=+3 N=-7 E=1e-16 mformat=2 links hspsepQmax=30 hspsepSmax=30 sump pingpong warnings > tRNAs.Nuclear_vs_AGPv5.reblast.out 
+
+##### Mitochondrial genome 
+blastn Zm-B73-REFERENCE-NAM-5.0_genomic.with_scaffolds.no_names.fasta Mt.NC_007982.1.fasta cpus=24 M=+3 N=-7 E=1e-16 mformat=2 links sump pingpong warnings >  Mt.vs_AGPv5.reblast.out 
+
+##### Chloroplast genome
+blastn Zm-B73-REFERENCE-NAM-5.0_genomic.with_scaffolds.no_names.fasta Chl.NC_001666.2.fasta cpus=24 M=+3 N=-7 E=1e-16 mformat=2 links sump pingpong warnings > Chl.vs_AGPv5.reblast.out 
 ```
-##### expected output
- 
-#### 1) BLAST database
