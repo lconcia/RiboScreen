@@ -31,7 +31,7 @@ We obtained known sequences of the chosen contaminants from public repositories.
 To ensure specificity, we identified contaminants sequences in the genome of maize cv. B73.
 See [04_BLAST_over_B73_AGPv5.md](https://github.com/lconcia/RiboScreen/blob/main/04_BLAST_over_B73_AGPv5.md#04_blast_over_b73_agpv5) 
 ### 3)  Filtering and formatting of BLAST output
-See [05_BLAST_output_formatting.md]([https://github.com/lconcia/RiboScreen/blob/main/BLAST_output_formatting.md](https://github.com/lconcia/RiboScreen/blob/main/05_BLAST_output_formatting.md))
+See [05_BLAST_output_formatting.md](https://github.com/lconcia/RiboScreen/blob/main/05_BLAST_output_formatting.md)
 
 * **28S rRNA subunit :** 28S.Zea_Mays_vs_AGPv5.querysize.above_90.merged.fasta.gz
 * **18S rRNA subunit :** 18S.Zea_Mays_vs_AGPv5.querysize.above_90.merged.fasta.gz
