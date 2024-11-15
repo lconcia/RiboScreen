@@ -9,7 +9,7 @@ AB-BLAST is available <ins> at no cost</ins> for academic users at this address 
 #### 2) Creation of the BLAST database
 
 ```bash
-xdformat -n /work2/03302/lconcia/references/maize/Zm-B73-REFERENCE-NAM-5.0_genomic.with_scaffolds.no_names.fasta
+xdformat -n Zm-B73-REFERENCE-NAM-5.0_genomic.with_scaffolds.no_names.fasta
 ```
 ##### expected output
 ```bash
