@@ -45,10 +45,23 @@ blastn Zm-B73-REFERENCE-NAM-5.0_genomic.with_scaffolds.no_names.fasta Chl.NC_001
 
 #### 4) inspect the output
 
+```bash
 
-   70962 /work2/03302/lconcia/references/maize/sortMeRNA_db/ChlMt_db/Chl.vs_AGPv5.reblast.out
-  118704 /work2/03302/lconcia/references/maize/sortMeRNA_db/ChlMt_db/Mt.vs_AGPv5.reblast.out
-  150333 /work2/03302/lconcia/references/maize/sortMeRNA_db/tRNAs_db/tRNAs.Nuclear_vs_AGPv5.reblast.out
+
+   558147 28S.Zea_Mays_vs_AGPv5.reblast.out
+   408654 18S.Zea_Mays_vs_AGPv5.reblast.out
+   494053 5S.Zea_Mays_vs_AGPv5.reblast.out
+   371224 5.8S.Zea_Mays_vs_AGPv5.reblast.out   
+     7243 SRP.Zea_Mays_vs_AGPv5.reblast.out
+   175413 tRNAs.Nuclear_vs_AGPv5.reblast.out
+   118704 Mt.vs_AGPv5.reblast.out
+    70962 Chl.vs_AGPv5.reblast.out
+
+
+
+
+```
+
 
 
 ## filter ONLY by size
