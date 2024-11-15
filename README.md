@@ -16,7 +16,7 @@ To this aim, we assembled a database of the most frequent contaminants, includin
 
 ## Pipeline outline
 
-### 1) Sequences sources
+#### 1) Sequences sources
 We obtained known sequences of the chosen contaminants from public repositories. 
 | Sequence group | Source |
 | ------------- | -------------- |
@@ -27,10 +27,10 @@ We obtained known sequences of the chosen contaminants from public repositories.
 | Plastid genome | https://www.ncbi.nlm.nih.gov/nuccore/NC_001666.2  |
 | Mitochondrial genome | https://www.ncbi.nlm.nih.gov/nuccore/NC_007982.1  |
 
-### 2) BLAST sequences over maize AGPv5 genome assembly
+#### 2) BLAST sequences over maize AGPv5 genome assembly
 To ensure specificity, we identified contaminants sequences in the genome of maize cv. B73.
 See [04_BLAST_over_B73_AGPv5.md](https://github.com/lconcia/RiboScreen/blob/main/04_BLAST_over_B73_AGPv5.md#04_blast_over_b73_agpv5) 
-### 3)  Filtering and formatting of BLAST output
+#### 3)  Filtering and formatting of BLAST output
 See [05_BLAST_output_formatting.md](https://github.com/lconcia/RiboScreen/blob/main/05_BLAST_output_formatting.md)
 
 * **28S rRNA subunit :** 28S.Zea_Mays_vs_AGPv5.querysize.above_90.merged.fasta.gz
@@ -43,7 +43,7 @@ See [05_BLAST_output_formatting.md](https://github.com/lconcia/RiboScreen/blob/m
 * **Plastid chromosome :** Chl.vs_AGPv5.fasta.gz
 * **Mitochondrial chromosome :** Mt.vs_AGPv5.fasta.gz
 
-### 4) Use the sequences to identify contaminant with sortMeRNA  
+#### 4) Use the sequences to identify contaminant with sortMeRNA  
 We tested the database against RNA-Seq data from maize cv. B73. We then explored the possibility of using the same database on other samples, running the same analysis on a different maize cultivar, NC350, and on a relative species, sorghum. 
 
 *  **Manual**
