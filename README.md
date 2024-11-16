@@ -45,7 +45,11 @@ See [04_filter_and_format_BLAST_output.md](https://github.com/lconcia/RiboScreen
 * **Plastid chromosome :** Chl.vs_AGPv5.fasta.gz
 * **Mitochondrial chromosome :** Mt.vs_AGPv5.fasta.gz
 
-#### 5) Use the sequences to identify contaminant with sortMeRNA  
+#### 5) Obtain the ITS sequence from rDNA coordinates.
+The Internal transcribed spacer (ITS) is the spacer DNA situated between the small-subunit ribosomal DNA (rDNA) and large-subunit rRNA genes.
+We can derived the ITS sequence from the rDNA subunits coordinates. See [05_ITS_sequences.md](https://github.com/lconcia/RiboScreen/blob/main/05_ITS_sequences.md)
+
+#### 6) Use the sequences to identify contaminant with sortMeRNA  
 We tested the database against RNA-Seq data from maize cv. B73. We then explored the possibility of using the same database on other samples, running the same analysis on a different maize cultivar, NC350, and on a relative species, sorghum. 
 
 *  **Manual**
