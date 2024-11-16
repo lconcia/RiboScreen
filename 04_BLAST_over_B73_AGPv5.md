@@ -46,7 +46,7 @@ $ blastn Zm-B73-REFERENCE-NAM-5.0_genomic.with_scaffolds.no_names.fasta Chl.NC_0
 #### 4) inspect the output
 
 ```bash
-##### count the number of homologous sequences
+##### count the number of hits
 
 $ wc -l *vs_AGPv5.reblast.out
 
@@ -59,16 +59,6 @@ $ wc -l *vs_AGPv5.reblast.out
    175413 tRNAs.Nuclear_vs_AGPv5.reblast.out
    118704 Mt.vs_AGPv5.reblast.out
     70962 Chl.vs_AGPv5.reblast.out
-
-
-##### visualize one file
-
-$ head -n3 28S.Zea_Mays_vs_AGPv5.reblast.out
-
-##### expected output
-chr6:16745916-16749299	chr6	0.	1	6609.18	10149	3383	3383	3383	0	100.00	100.00	0	0	0	0	+1	1	3383	+1	16745917	16749299	(1)
-chr6:16745916-16749299	chr6	0.	1	6596.15	10129	3383	3381	3381	1	99.94	99.94	0	0	1	1	+1	1	3383	+1	17223070	17226451	(2)
-chr6:16745916-16749299	chr6	0.	1	6596.15	10129	3383	3381	3381	1	99.94	99.94	0	0	1	1	+1	1	3383	+1	17214276	17217657	(3)
 ```
 
 
