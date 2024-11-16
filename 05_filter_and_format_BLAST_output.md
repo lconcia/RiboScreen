@@ -1,7 +1,9 @@
 # 05_filter_and_format_BLAST_output
-### Filter the BLAST hits by size, select only genomic chromosomes, and format as BED file.
+
+Once identified the contaminant sequences in the genome assembly with BLAST, we need to increase the specificity by selecting the hits of meaningful size.
+We will also discard hits mapping on chloroplast and mithochondrial genome, then format as BED file and retrieve the sequences as FASTA files.
+#### #   visualize the BLAST output
 ```bash
-##### visualize one BLAST output
 $ head -n3 28S.Zea_Mays_vs_AGPv5.reblast.out
 
 ##### expected output
@@ -9,7 +11,7 @@ chr6:16745916-16749299	chr6	0.	1	6609.18	10149	3383	3383	3383	0	100.00	100.00	0	
 chr6:16745916-16749299	chr6	0.	1	6596.15	10129	3383	3381	3381	1	99.94	99.94	0	0	1	1	+1	1	3383	+1	17223070	17226451	(2)
 chr6:16745916-16749299	chr6	0.	1	6596.15	10129	3383	3381	3381	1	99.94	99.94	0	0	1	1	+1	1	3383	+1	17214276	17217657	(3)
 ```
-#### #   To make a bed we need to print the following columns  (https://blast.advbiocomp.com/doc/tabular.html) :
+#### #   Select the following columns (from https://blast.advbiocomp.com/doc/tabular.html) to format as BED file:
 *  2  = sid subject : sequence identifier (chromosome)
 * 21  =  sstart     : the starting coordinate of the alignment in the subject sequence
 * 22  =  send       : the ending coordinate of the alignment in the subject sequence
