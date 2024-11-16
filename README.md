@@ -60,15 +60,15 @@ https://sortmerna.readthedocs.io/en/latest/manual4.0.html
   
 ```
 sortmerna --threads 16 --out2 True --zip-out Yes --fastx true --blast '1 cigar qcov qstrand' --paired_in true \
--ref sortMeRNA.B73_AGPv5.db/ChlMt_db/Mt.vs_AGPv5.fasta \
--ref sortMeRNA.B73_AGPv5.db/ChlMt_db/Chl.vs_AGPv5.fasta \
--ref sortMeRNA.B73_AGPv5.db/tRNAs_db/tRNAs.vs_AGPv5.merged.fasta \
--ref sortMeRNA.B73_AGPv5.db/rRNA_db/annotation_vs_AGPv5/5.8S.Zea_Mays_vs_AGPv5.querysize.above_90.merged.fasta \
--ref sortMeRNA.B73_AGPv5.db/rRNA.Zm-B73-REFERENCE-NAM-5.0_genomic.with_scaffolds.ITS.fasta \
--ref sortMeRNA.B73_AGPv5.db/18S.Zea_Mays_vs_AGPv5.querysize.above_90.merged.fasta \
--ref sortMeRNA.B73_AGPv5.db/28S.Zea_Mays_vs_AGPv5.querysize.above_90.merged.fasta \
--ref sortMeRNA.B73_AGPv5.db/5S.Zea_Mays_vs_AGPv5.querysize.above_90.merged.fasta \
--ref sortMeRNA.B73_AGPv5.db/SRP_db/SRP.Zea_Mays_vs_AGPv5.querysize.above_90.merged.fasta \
+-ref Mt.vs_AGPv5.fasta \
+-ref Chl.vs_AGPv5.fasta \
+-ref tRNAs.vs_AGPv5.merged.fasta \
+-ref annotation_vs_AGPv5/5.8S.Zea_Mays_vs_AGPv5.querysize.above_90.merged.fasta \
+-ref rRNA.Zm-B73-REFERENCE-NAM-5.0_genomic.with_scaffolds.ITS.fasta \
+-ref 18S.Zea_Mays_vs_AGPv5.querysize.above_90.merged.fasta \
+-ref 28S.Zea_Mays_vs_AGPv5.querysize.above_90.merged.fasta \
+-ref 5S.Zea_Mays_vs_AGPv5.querysize.above_90.merged.fasta \
+-ref SRP_db/SRP.Zea_Mays_vs_AGPv5.querysize.above_90.merged.fasta \
 -reads $SAMPLE.R1.fastq \
 -reads $SAMPLE.R2.fastq \
 --idx-dir sortMeRNA.B73_AGPv5.db/sortmerna.idx-dir \
