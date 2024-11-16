@@ -1,7 +1,7 @@
 # 05_filter_and_format_BLAST_output
 
-Once identified the contaminant sequences in the genome assembly with BLAST, we need to increase the specificity by selecting the hits of meaningful size.
-We will also discard hits mapping on chloroplast and mithochondrial genome, then format as BED file and retrieve the sequences as FASTA files.
+Once identified the contaminant sequences with BLAST, we need to increase the specificity by selecting only the hits of meaningful size and discard hits mapping on chloroplast and mithochondrial genome.
+We will then format as BED file to retrieve the sequences as FASTA files.
 #### #   visualize the BLAST output
 ```bash
 $ head -n3 28S.Zea_Mays_vs_AGPv5.reblast.out
