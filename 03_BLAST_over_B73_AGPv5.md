@@ -1,4 +1,4 @@
-# 03_BLAST_over_B73_AGPv5
+# BLAST the queries against the B73 AGPv5 genome assembly
 
 #### 
 
