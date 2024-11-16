@@ -25,7 +25,7 @@ $ cat Chl.vs_AGPv5.reblast.out | awk 'BEGIN{OFS="\t"}{if ($22-$21>=150) print $2
 ```bash
 $ cat tRNAs.vs_AGPv5.reblast.out  | awk 'BEGIN{OFS="\t"}{if ($22-$21>=59) print $2,$21,$22,$11,($22-$21) }' | grep  -v 'chrM\|chrC' | sort -k1,1V -k2,2n > tRNAs.vs_AGPv5.bed
 ```
-#### #    for rDNA subunits, filter hits long at least 90% of the length of the respective query. We will obtain the lenght of the query from column 1 (i.e. chr6:16749525-16749680 )
+#### #    for rDNA subunits, we select the hits long at least 90% of the length of the respective query. We will obtain the lenght of the query from column 1 (i.e. chr6:16749525-16749680 )
 *  1  = qid : query sequence identifier (sequence name in the fasta file)
 
 ```bash
