@@ -4,7 +4,7 @@ Once identified the contaminant sequences with BLAST, we need to increase the sp
 We will then format as BED file to retrieve the sequences as FASTA files.
 #### #   visualize the BLAST output
 ```bash
-$ head -n3 28S.Zea_Mays_vs_AGPv5.reblast.out
+$ head -n 3 28S.Zea_Mays_vs_AGPv5.reblast.out
 
 ##### expected output
 chr6:16745916-16749299	chr6	0.	1	6609.18	10149	3383	3383	3383	0	100.00	100.00	0	0	0	0	+1	1	3383	+1	16745917	16749299	(1)
@@ -16,7 +16,7 @@ chr6:16745916-16749299	chr6	0.	1	6596.15	10129	3383	3381	3381	1	99.94	99.94	0	0	
 * 21  =  sstart     : the starting coordinate of the alignment in the subject sequence
 * 22  =  send       : the ending coordinate of the alignment in the subject sequence
 * 11  =  pcident    : percent identity over the alignment length (as a fraction of alignlen)
-#### #    for Mt and Chl min 150 bp (length of one read)
+#### #    for Mt and Chl min 150 bp (length of one sequencing read)
 ```bash
 $ cat Mt.vs_AGPv5.reblast.out  | awk 'BEGIN{OFS="\t"}{if ($22-$21>=150) print $2,$21,$22,$11,($22-$21) }' | grep  -v 'chrM\|chrC' | sort -k1,1V -k2,2n > Mt.vs_AGPv5.bed
 $ cat Chl.vs_AGPv5.reblast.out | awk 'BEGIN{OFS="\t"}{if ($22-$21>=150) print $2,$21,$22,$11,($22-$21) }' | grep  -v 'chrM\|chrC' | sort -k1,1V -k2,2n > Chl.vs_AGPv5.bed
