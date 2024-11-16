@@ -22,12 +22,12 @@ We obtained known sequences of the chosen contaminants from public repositories.
 To use them as BLAST queries we need to convert them to a suitable format. See [02_format_queries.md](https://github.com/lconcia/RiboScreen/blob/main/02_format_queries.md)
 | Sequence group | Source |
 | ------------- | -------------- |
-| rRNA (28S, 18S, 5.8S, and 5S subunits) |[NCBI annotation](https://github.com/lconcia/RiboScreen/blob/main/01_format_B73_genome.md#annotation-formatting) |
-| rRNA Internal transcribed spacer (ITS) |[NCBI annotation](https://github.com/lconcia/RiboScreen/blob/main/01_format_B73_genome.md#annotation-formatting) |
-| Signal recognition particle (SRP) | https://rth.dk/resources/rnp/SRPDB/rna/sequences/srprna_seqs.zip  |
-| tRNAs  | https://bioinformatics.um6p.ma/PltRNAdb/data/download/Zea_mays.Nuclear.fa.gz  |
-| Plastid genome | https://www.ncbi.nlm.nih.gov/nuccore/NC_001666.2  |
-| Mitochondrial genome | https://www.ncbi.nlm.nih.gov/nuccore/NC_007982.1  |
+| <sup>rRNA (28S, 18S, 5.8S, and 5S subunits) </sup>| <sup>[NCBI annotation](https://github.com/lconcia/RiboScreen/blob/main/01_format_B73_genome.md#annotation-formatting)</sup> |
+| <sup>rRNA Internal transcribed spacer (ITS) </sup> |<sup>[NCBI annotation](https://github.com/lconcia/RiboScreen/blob/main/01_format_B73_genome.md#annotation-formatting)</sup> |
+| <sup>Signal recognition particle (SRP)</sup>| <sup>https://rth.dk/resources/rnp/SRPDB/rna/sequences/srprna_seqs.zip</sup>  |
+| <sup>tRNAs</sup> | <sup>https://bioinformatics.um6p.ma/PltRNAdb/data/download/Zea_mays.Nuclear.fa.gz </sup>  |
+| <sup>Plastid genome</sup> | <sup>https://www.ncbi.nlm.nih.gov/nuccore/NC_001666.2</sup>   |
+| <sup>Mitochondrial genome</sup> | <sup>https://www.ncbi.nlm.nih.gov/nuccore/NC_007982.1</sup>  |
 
 #### 3) BLAST sequences over maize AGPv5 genome assembly.
 To ensure specificity, we identified contaminants sequences in the genome of maize cv. B73.
