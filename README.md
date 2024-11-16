@@ -16,7 +16,7 @@ To this aim, we assembled a database of the most frequent contaminants, includin
 
 ## Pipeline outline
 ### 1) Retrieve and format the genome assembly and annotation.
-See [01_format_B73_genome.md](https://github.com/lconcia/RiboScreen/blob/main/05_filter_and_format_BLAST_output.md)
+See [01_format_B73_genome.md](https://github.com/lconcia/RiboScreen/blob/main/01_format_B73_genome.md)
 ### 2) Retrieve the contaminants sequence.
 We obtained known sequences of the chosen contaminants from public repositories.
 To use them as BLAST queries we need to convert them to a suitable format. See [02_format_queries.md](https://github.com/lconcia/RiboScreen/blob/main/02_format_queries.md)
