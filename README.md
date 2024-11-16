@@ -19,7 +19,7 @@ To this aim, we assembled a database of the most frequent contaminants, includin
 See [01_format_B73_genome.md](https://github.com/lconcia/RiboScreen/blob/main/05_filter_and_format_BLAST_output.md)
 #### 2) Sequences sources
 We obtained known sequences of the chosen contaminants from public repositories.
-To use them as BLAST queries we need to convert them to a suitable format. See [02_format_queries.md)](https://github.com/lconcia/RiboScreen/blob/main/02_format_queries.md)
+To use them as BLAST queries we need to convert them to a suitable format. See [02_format_queries.md](https://github.com/lconcia/RiboScreen/blob/main/02_format_queries.md)
 | Sequence group | Source |
 | ------------- | -------------- |
 | rRNA (28S, 18S, 5.8S, and 5S subunits) |[NCBI annotation](https://github.com/lconcia/RiboScreen/blob/main/01_format_B73_genome.md#annotation-formatting) |
