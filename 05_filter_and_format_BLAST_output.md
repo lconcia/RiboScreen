@@ -1,4 +1,5 @@
-# Filter the BLAST hits by size, select only genomic chromosomes, and format as BED file.
+# 05_filter_and_format_BLAST_output
+### Filter the BLAST hits by size, select only genomic chromosomes, and format as BED file.
 
 #### #   To make a bed we need to print the following columns  (https://blast.advbiocomp.com/doc/tabular.html) :
 
