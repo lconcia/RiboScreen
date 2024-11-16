@@ -17,7 +17,7 @@ To this aim, we assembled a database of the most frequent contaminants, includin
 ## Pipeline outline
 #### 1) Retrieve and format the genome assembly and annotation.
 See [01_format_B73_genome.md](https://github.com/lconcia/RiboScreen/blob/main/05_filter_and_format_BLAST_output.md)
-#### 2) Sequences sources
+#### 2) Retrieve the contaminants sequence.
 We obtained known sequences of the chosen contaminants from public repositories.
 To use them as BLAST queries we need to convert them to a suitable format. See [02_format_queries.md](https://github.com/lconcia/RiboScreen/blob/main/02_format_queries.md)
 | Sequence group | Source |
@@ -29,10 +29,10 @@ To use them as BLAST queries we need to convert them to a suitable format. See [
 | Plastid genome | https://www.ncbi.nlm.nih.gov/nuccore/NC_001666.2  |
 | Mitochondrial genome | https://www.ncbi.nlm.nih.gov/nuccore/NC_007982.1  |
 
-#### 3) BLAST sequences over maize AGPv5 genome assembly
+#### 3) BLAST sequences over maize AGPv5 genome assembly.
 To ensure specificity, we identified contaminants sequences in the genome of maize cv. B73.
 See [03_BLAST_over_B73_AGPv5.md](https://github.com/lconcia/RiboScreen/blob/main/03_BLAST_over_B73_AGPv5.md) 
-#### 4)  Filter and format the BLAST output
+#### 4)  Filter and format the BLAST output.
 See [04_filter_and_format_BLAST_output.md](https://github.com/lconcia/RiboScreen/blob/main/04_filter_and_format_BLAST_output.md)
 
 * **28S rRNA subunit :** 28S.Zea_Mays_vs_AGPv5.querysize.above_90.merged.fasta.gz
@@ -49,7 +49,7 @@ See [04_filter_and_format_BLAST_output.md](https://github.com/lconcia/RiboScreen
 The Internal transcribed spacer (ITS) is the spacer DNA situated between the small-subunit ribosomal DNA (rDNA) and large-subunit rRNA genes.
 We can derived the ITS sequence from the rDNA subunits coordinates. See [05_ITS_sequences.md](https://github.com/lconcia/RiboScreen/blob/main/05_ITS_sequences.md)
 
-#### 6) Use the sequences to identify contaminant with sortMeRNA  
+#### 6) Use the sequences to identify contaminant with sortMeRNA.
 We tested the database against RNA-Seq data from maize cv. B73. We then explored the possibility of using the same database on other samples, running the same analysis on a different maize cultivar, NC350, and on a relative species, sorghum. 
 
 *  **Manual**
