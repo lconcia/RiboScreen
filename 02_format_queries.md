@@ -1,7 +1,8 @@
 # Formatting of the BLAST queries 
-This file describe the identification of rRNA sequences from B73 genome assembly
 
 ##  rRNAs (ribosomal  subunits)
+This section describe the identification of rRNA sequences from B73 genome assembly
+
 #### 1) Extract rRNA features from the annotation
 ```bash
 $ awk '$3=="rRNA" ' Zm-B73-REFERENCE-NAM-5.0_genomic.with_scaffolds.gff > rRNA.Zm-B73-REFERENCE-NAM-5.0_genomic.with_scaffolds.gff
