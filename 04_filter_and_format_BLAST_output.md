@@ -59,7 +59,7 @@ $ bedtools merge -c 4,4,4 -o max,median,count -i  5S.Zea_Mays_vs_AGPv5.querysize
 $ bedtools merge -c 4,4,4 -o max,median,count -i  SRP.Zea_Mays_vs_AGPv5.querysize.above_90.bed >   SRP.Zea_Mays_vs_AGPv5.querysize.above_90.merged.bed
 
 
-head -n 3 ./references/rDNA/28S.Zea_Mays_vs_AGPv5.querysize.above_90.merged.bed
+$ head -n 3 ./references/rDNA/28S.Zea_Mays_vs_AGPv5.querysize.above_90.merged.bed
 
 ##### expected output
 chr10	34702309	34705691	100	99.7	498
@@ -67,7 +67,7 @@ chr6	16745916	16749299	100	99.88	498
 chr6	16754714	16758096	100	99.94	498
 ```
 
-## Retrieve the genomic sequences in FASTA format
+### Retrieve the genomic sequences in FASTA format
 
 ```bash
 $ bedtools getfasta -fi Zm-B73-REFERENCE-NAM-5.0_genomic.with_scaffolds.no_names.fasta Mt.vs_AGPv5.bed -fo Mt.vs_AGPv5.fasta
