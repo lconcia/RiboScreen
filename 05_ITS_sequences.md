@@ -25,8 +25,9 @@ sort -k1,1 -k2,2n > rRNA.Zm-B73-REFERENCE-NAM-5.0_genomic.with_scaffolds.rDNA_un
 
 
 #### expected output
-
-
+chr6	16745916	16751710	28S,5.8S,18S
+chr6	16754714	16760506	28S,5.8S,18S
+chr6	16766453	16772017	28S,5.8S,18S
 ```
 
 #### Extract only the complete 35S  units.
