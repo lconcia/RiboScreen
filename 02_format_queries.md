@@ -38,7 +38,7 @@ chr2	227611040	227611158	5S-ID=rna-XR_004856667.1	.	+
 ```
 #### 4) Extract the corresponding rRNA sequences from the genome 
 ```bash
-for f in rRNA.Zm-B73-REFERENCE-NAM-5.0_genomic.with_scaffolds.*.bed
+$ for f in rRNA.Zm-B73-REFERENCE-NAM-5.0_genomic.with_scaffolds.*.bed
 do
 ls $f
 bedtools getfasta -fi Zm-B73-REFERENCE-NAM-5.0_genomic.with_scaffolds.no_names.fasta -bed  $f -fo $(basename $f bed)fasta
@@ -57,11 +57,11 @@ aatgatccttccgcaggttcacctacggaaaccttgttacgacttctccttcctctaaatgataaggttcaatggacttc
 ##  Signal recognition particles (SRPs)
 #### 1) Download the available sequences
 ```bash
-wget https://rth.dk/resources/rnp/SRPDB/rna/sequences/srprna_seqs.zip
+$ wget https://rth.dk/resources/rnp/SRPDB/rna/sequences/srprna_seqs.zip
 ````
 #### 2) Concatenate the maize sequences
 ```bash
-cat \
+$ cat \
 Zea.mays._AY108846.fasta \
 Zea.mays._CB179518.fasta \
 Zea.mays._CD526459.fasta \
@@ -90,7 +90,7 @@ GGUGGUGcg------gaUGC-UUuG----cGAuGG-------------------------
 ```  
 #### 3) Linearize the multifasta
 ```bash
-cat SRP_RNA.fasta | \
+$ cat SRP_RNA.fasta | \
 awk '/^>/ {printf("%s%s\t",(N>0?"\n":""),$0);N++;next;} \
 {printf("%s",$0);} \
 END \
@@ -109,10 +109,10 @@ CCGAGUUCUGuagcUAGAGCUUguaaCCCGagCGGGGGcauuAAGGUGGcGcggaUGCUUuGcGAuGGUUUcuGGgCCUG
 Replace U with T in case-insensitive mode, and capitalize sequences (even lines)
 ```bash
 ### on UNIX bash
-cat SRP_RNA.lin.fasta.tmp | sed -e'2~2 s/a/A/g' -e '2~2 s/c/C/g' -e '2~2 s/g/G/g' -e '2~2 s/[ut]/T/g' > SRP_RNA.lin.fasta  
+$ cat SRP_RNA.lin.fasta.tmp | sed -e'2~2 s/a/A/g' -e '2~2 s/c/C/g' -e '2~2 s/g/G/g' -e '2~2 s/[ut]/T/g' > SRP_RNA.lin.fasta  
 
 ### on MacOSX Terminal (specific version of sed)
-cat SRP_RNA.lin.fasta.tmp | gsed -e'2~2 s/a/A/g' -e '2~2 s/c/C/g' -e '2~2 s/g/G/g' -e '2~2 s/[ut]/T/g' > SRP_RNA.lin.fasta
+$ cat SRP_RNA.lin.fasta.tmp | gsed -e'2~2 s/a/A/g' -e '2~2 s/c/C/g' -e '2~2 s/g/G/g' -e '2~2 s/[ut]/T/g' > SRP_RNA.lin.fasta
 
 ### note: 2~2: This is a GNU sed syntax that means "start at line 2 and then select every second line thereafter" (i.e., lines 2, 4, 6, ...).
 ###  2~2 is not correctly interpreted by Mac sed. See https://stackoverflow.com/questions/22330462/why-does-sed-report-invalid-command-code-for-tilde
@@ -173,7 +173,7 @@ done < "$input_file"
 * check the output
 
 ```bash
-head -n 6 SRP_RNA.lin.lenght.fasta
+$ head -n 6 SRP_RNA.lin.lenght.fasta
 
 ### expected output
 >Zea.mays._AY108846:1-287
@@ -188,7 +188,7 @@ Blast these on AGPv5 without allowing for introns
 ##  tRNAs 
 
 ```bash
-wget https://bioinformatics.um6p.ma/PltRNAdb/data/download/Zea_mays.Nuclear.fa.gz
+$ wget https://bioinformatics.um6p.ma/PltRNAdb/data/download/Zea_mays.Nuclear.fa.gz
 
 ### expected output
 >Zea_mays_NC_050096.1.trna1-Arg
@@ -202,7 +202,7 @@ No formatting needed
 
 ##  Mitochondrion genome
 ```bash
-esearch -db nucleotide -query "NC_001666.2" | efetch -format fasta > Chl.NC_001666.2.fasta
+$ esearch -db nucleotide -query "NC_001666.2" | efetch -format fasta > Chl.NC_001666.2.fasta
 
 ### expected output
 >NC_001666.2 Zea mays chloroplast, complete genome
@@ -214,7 +214,7 @@ No formatting needed
 
 ##  Chloroplast genome
 ```bash
-esearch -db nucleotide -query "NC_007982.1" | efetch -format fasta >  Mt.NC_007982.1.fasta
+$ esearch -db nucleotide -query "NC_007982.1" | efetch -format fasta >  Mt.NC_007982.1.fasta
 
 ### expected output
 >NC_007982.1 Zea mays subsp. mays mitochondrion, complete genome
