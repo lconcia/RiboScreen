@@ -35,7 +35,7 @@ $ grep ">" GCF_902167145.1_Zm-B73-REFERENCE-NAM-5.0_genomic.fasta
 #### 3) Edit the chromosome names of the assembly
 
 ```awk
- awk '{ if ($0 ~ /mitochondrion/) print ">chrM" ; 
+ $ awk '{ if ($0 ~ /mitochondrion/) print ">chrM" ; 
         else if ($0 ~ /chloroplast/) print ">chrC";
              else if ($1 ~ /NC_/) print ">chr"substr($7, 1, length($7)-1);
                   else if ($1 ~ /NW_/) print $1;
