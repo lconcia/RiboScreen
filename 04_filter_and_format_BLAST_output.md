@@ -2,7 +2,7 @@
 
 Once identified the contaminant sequences with BLAST, we need to increase the specificity by selecting only the hits of meaningful size and discard hits mapping on chloroplast and mithochondrial genome.
 We then format as BED file to retrieve the sequences as FASTA files.
-#### #   visualize the BLAST output
+#### 1)   visualize the BLAST output
 ```bash
 $ head -n 3 28S.Zea_Mays_vs_AGPv5.reblast.out
 
@@ -11,21 +11,21 @@ chr6:16745916-16749299	chr6	0.	1	6609.18	10149	3383	3383	3383	0	100.00	100.00	0	
 chr6:16745916-16749299	chr6	0.	1	6596.15	10129	3383	3381	3381	1	99.94	99.94	0	0	1	1	+1	1	3383	+1	17223070	17226451	(2)
 chr6:16745916-16749299	chr6	0.	1	6596.15	10129	3383	3381	3381	1	99.94	99.94	0	0	1	1	+1	1	3383	+1	17214276	17217657	(3)
 ```
-#### #   Select the following columns (from https://blast.advbiocomp.com/doc/tabular.html) to format as BED file:
+#### 2)   Select the following columns (from https://blast.advbiocomp.com/doc/tabular.html) to format as BED file:
 *  2  = sid subject : sequence identifier (chromosome)
 * 21  =  sstart     : the starting coordinate of the alignment in the subject sequence
 * 22  =  send       : the ending coordinate of the alignment in the subject sequence
 * 11  =  pcident    : percent identity over the alignment length (as a fraction of alignlen)
-#### #    for Mt and Chl min 150 bp (length of one sequencing read)
+#### 3)    for Mt and Chl min 150 bp (length of one sequencing read)
 ```bash
 $ cat Mt.vs_AGPv5.reblast.out  | awk 'BEGIN{OFS="\t"}{if ($22-$21>=150) print $2,$21,$22,$11,($22-$21) }' | grep  -v 'chrM\|chrC' | sort -k1,1V -k2,2n > Mt.vs_AGPv5.bed
 $ cat Chl.vs_AGPv5.reblast.out | awk 'BEGIN{OFS="\t"}{if ($22-$21>=150) print $2,$21,$22,$11,($22-$21) }' | grep  -v 'chrM\|chrC' | sort -k1,1V -k2,2n > Chl.vs_AGPv5.bed
 ```
-#### #    for tRNA min 59 bp (length of shortest tRNA in maize)
+#### 4)    for tRNA min 59 bp (length of shortest tRNA in maize)
 ```bash
 $ cat tRNAs.vs_AGPv5.reblast.out  | awk 'BEGIN{OFS="\t"}{if ($22-$21>=59) print $2,$21,$22,$11,($22-$21) }' | grep  -v 'chrM\|chrC' | sort -k1,1V -k2,2n > tRNAs.vs_AGPv5.bed
 ```
-#### #    for rDNA subunits and SRP, we select the hits long at least 90% of the length of the respective query. We will obtain the lenght of the query from column 1 (i.e. chr6:16749525-16749680 )
+#### 5)    for rDNA subunits and SRP, we select the hits long at least 90% of the length of the respective query. We will obtain the lenght of the query from column 1 (i.e. chr6:16749525-16749680 )
 *  1  = qid : query sequence identifier (sequence name in the fasta file)
 
 ```bash
@@ -67,7 +67,7 @@ chr6	16745916	16749299	100	99.88	498
 chr6	16754714	16758096	100	99.94	498
 ```
 
-### Retrieve the genomic sequences in FASTA format
+#### 6) Retrieve the genomic sequences in FASTA format
 
 ```bash
 $ bedtools getfasta -fi Zm-B73-REFERENCE-NAM-5.0_genomic.with_scaffolds.no_names.fasta Mt.vs_AGPv5.bed -fo Mt.vs_AGPv5.fasta
@@ -80,7 +80,7 @@ $ bedtools getfasta -fi Zm-B73-REFERENCE-NAM-5.0_genomic.with_scaffolds.no_names
 $ bedtools getfasta -fi Zm-B73-REFERENCE-NAM-5.0_genomic.with_scaffolds.no_names.fasta SRP.Zea_Mays_vs_AGPv5.querysize.above_90.merged.bed  -fo SRP.Zea_Mays_vs_AGPv5.querysize.above_90.merged.fasta
 ```
 
-### Add the type of contamint to the fasta header to distinguish them
+#### 7) Add the type of contamint to the fasta header to distinguish them
  
 ```bash
 $ sed -i.bkp 's/>/>Mt./g'   Mt.vs_AGPv5.fasta
