@@ -7,7 +7,7 @@ The rRNA subunits are co-transcribed as a single polycistronic precursor, the 35
 To screen RNA-Seq data from contaminants, we want to used only ITS belonging to complete 35S transcripts. We will first identify full 35S units, and then subtract 18S, 5.8S, and 25S.
 
 
-#### Determine the genomic coordinates of all 35S precursor.
+#### 1) Determine the genomic coordinates of all 35S precursor.
 
 ITS1 and ITS2 in maize are typically shorted than 250 bp.
 We will merge the coordinates of 18S, 5.8S, and 25S subunits that are within a distance of 250 bp.
@@ -32,7 +32,7 @@ chr6    17125248        17128625        28S
 chr6    17131590        17137384        18S,5.8S,28S
 ```
 
-#### Extract only the complete 35S  units.
+#### 2) Extract only the complete 35S  units.
 
 ```bash
 $ grep '28S,5.8S,18S$\|18S,5.8S,28S$' rRNA.Zm-B73-REFERENCE-NAM-5.0_genomic.with_scaffolds.rDNA_units.bed > \
@@ -47,7 +47,7 @@ chr6	16754714	16760506	28S,5.8S,18S
 chr6	16766453	16772017	28S,5.8S,18S
 ```
 
-#### Subtract the subunits from the complete 35S  units.
+#### 3) Subtract the subunits from the complete 35S  units.
 ```
 $ bedtools subtract -nonamecheck \
 -a <( sort -k1,1 -k2,2n rRNA.Zm-B73-REFERENCE-NAM-5.0_genomic.with_scaffolds.rDNA_units.bed ) \
@@ -63,7 +63,7 @@ chr6	16758096	16758320	28S,5.8S,18S
 chr6	16758476	16758696	28S,5.8S,18S
 ```
 
-#### Retrieve the corresponding sequences
+#### 4) Retrieve the corresponding sequences
 ```bash
 $ bedtools getfasta -fi Zm-B73-REFERENCE-NAM-5.0_genomic.with_scaffolds.no_names.fasta \
 -bed rRNA.Zm-B73-REFERENCE-NAM-5.0_genomic.with_scaffolds.ITS.bed \
