@@ -1,5 +1,5 @@
 
-# Assembly formatting 
+# Format the genome assembly  
 
 #### 1) Download the assembly from NCBI 
 
@@ -11,8 +11,8 @@ $ wget -O - https://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/902/167/145/GCF_9021671
 
 ```bash
 $ grep ">" GCF_902167145.1_Zm-B73-REFERENCE-NAM-5.0_genomic.fasta
-```
-```bash
+
+#### expected output
 >NC_050096.1 Zea mays cultivar B73 chromosome 1, Zm-B73-REFERENCE-NAM-5.0, whole genome shotgun sequence
 >NC_050097.1 Zea mays cultivar B73 chromosome 2, Zm-B73-REFERENCE-NAM-5.0, whole genome shotgun sequence
 >NC_050098.1 Zea mays cultivar B73 chromosome 3, Zm-B73-REFERENCE-NAM-5.0, whole genome shotgun sequence
@@ -25,9 +25,7 @@ $ grep ">" GCF_902167145.1_Zm-B73-REFERENCE-NAM-5.0_genomic.fasta
 >NC_050105.1 Zea mays cultivar B73 chromosome 10, Zm-B73-REFERENCE-NAM-5.0, whole genome shotgun sequence
 >NW_023366717.1 Zea mays cultivar B73 unplaced genomic scaffold, Zm-B73-REFERENCE-NAM-5.0 scaffold_100, whole genome shotgun sequence
 >NW_023366718.1 Zea mays cultivar B73 unplaced genomic scaffold, Zm-B73-REFERENCE-NAM-5.0 scaffold_101, whole genome shotgun sequence
->NW_023366719.1 Zea mays cultivar B73 unplaced genomic scaffold, Zm-B73-REFERENCE-NAM-5.0 scaffold_102, whole genome shotgun sequence
 (...)
->NW_023367389.1 Zea mays cultivar B73 unplaced genomic scaffold, Zm-B73-REFERENCE-NAM-5.0 scaffold_97, whole genome shotgun sequence
 >NW_023367390.1 Zea mays cultivar B73 unplaced genomic scaffold, Zm-B73-REFERENCE-NAM-5.0 scaffold_98, whole genome shotgun sequence
 >NW_023367391.1 Zea mays cultivar B73 unplaced genomic scaffold, Zm-B73-REFERENCE-NAM-5.0 scaffold_99, whole genome shotgun sequence
 >NC_007982.1 Zea mays subsp. mays mitochondrion, complete genome
@@ -50,8 +48,8 @@ $ grep ">" GCF_902167145.1_Zm-B73-REFERENCE-NAM-5.0_genomic.fasta
 
 ```bash
 $ grep ">" Zm-B73-REFERENCE-NAM-5.0_genomic.with_scaffolds.no_names.fasta
-```
-```bash
+
+#### expected output
 >chr1
 >chr2
 >chr3
@@ -64,9 +62,7 @@ $ grep ">" Zm-B73-REFERENCE-NAM-5.0_genomic.with_scaffolds.no_names.fasta
 >chr10
 >NW_023366717.1
 >NW_023366718.1
->NW_023366719.1
 (...)
->NW_023367389.1
 >NW_023367390.1
 >NW_023367391.1
 
@@ -74,7 +70,7 @@ $ grep ">" Zm-B73-REFERENCE-NAM-5.0_genomic.with_scaffolds.no_names.fasta
 >chrC
 ```
 
-# Annotation formatting 
+# Format the genome  annotation 
 
 #### 1) Download the annotation from NCBI 
 
@@ -86,9 +82,8 @@ $ wget -O - https://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/902/167/145/GCF_9021671
 
 ```bash
 $ cut -f 1 GCF_902167145.1_Zm-B73-REFERENCE-NAM-5.0_genomic.gff | grep -v \# | sort | uniq 
-```
 
-```bash
+#### expected output
 NC_001666.2
 NC_007982.1
 NC_050096.1
@@ -103,9 +98,7 @@ NC_050104.1
 NC_050105.1
 NW_023366717.1
 NW_023366718.1
-NW_023366719.1
 (...)
-NW_023367389.1
 NW_023367390.1
 NW_023367391.1
 ```
@@ -113,7 +106,7 @@ NW_023367391.1
 #### 3) Edit the chromosome names of the annotation
 
 ```bash
-cat GCF_902167145.1_Zm-B73-REFERENCE-NAM-5.0_genomic.gff | sed \
+$ cat GCF_902167145.1_Zm-B73-REFERENCE-NAM-5.0_genomic.gff | sed \
 's/NC_050096.1/chr1/g; 
  s/NC_050097.1/chr2/g; 
  s/NC_050098.1/chr3/g; 
