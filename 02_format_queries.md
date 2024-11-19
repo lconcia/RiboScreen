@@ -31,7 +31,7 @@ $ cat rRNA.Zm-B73-REFERENCE-NAM-5.0_genomic.with_scaffolds.18S.gff | sed 's/;/\t
 
 head -n 4 rRNA.Zm-B73-REFERENCE-NAM-5.0_genomic.with_scaffolds.5S.bed
 
-##### expected output (rRNA.Zm-B73-REFERENCE-NAM-5.0_genomic.with_scaffolds.5S.bed)
+##### expected output  
 chr1	45918126	45918244	5S-ID=rna-XR_004855769.1	.	+
 chr1	78523371	78523489	5S-ID=rna-XR_004855692.1	.	+
 chr2	227610721	227610839	5S-ID=rna-XR_004856556.1	.	+
