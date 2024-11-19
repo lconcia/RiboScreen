@@ -30,6 +30,7 @@ chr6    17106224        17112014        18S,5.8S,28S
 chr6    17114979        17117166        18S,5.8S
 chr6    17125248        17128625        28S
 chr6    17131590        17137384        18S,5.8S,28S
+(...)
 ```
 
 #### 2) Extract only the complete 35S  units.
@@ -45,6 +46,7 @@ chr10	34699901	34705691	18S,5.8S,28S
 chr6	16745916	16751710	28S,5.8S,18S
 chr6	16754714	16760506	28S,5.8S,18S
 chr6	16766453	16772017	28S,5.8S,18S
+(...)
 ```
 
 #### 3) Subtract the subunits from the complete 35S  units.
@@ -61,6 +63,7 @@ chr6	16749299	16749524	28S,5.8S,18S
 chr6	16749680	16749900	28S,5.8S,18S
 chr6	16758096	16758320	28S,5.8S,18S
 chr6	16758476	16758696	28S,5.8S,18S
+(...)
 ```
 
 #### 4) Retrieve the corresponding sequences
@@ -76,4 +79,5 @@ $ head -n 4 rRNA.Zm-B73-REFERENCE-NAM-5.0_genomic.with_scaffolds.ITS.fasta
 ccgtgacccttaaacaaaacagaccgcgaacgagtcacccgtgccgccgggctccggcccggcacgctgccccccccgaacctcccgcggggaaggggggggacgctaaaaagaacccacggcgccccgggcgccaaggaacaccagtactacctcctgccccgcggagcggtcggcccgccttccgctcccagggcagcggttacaccttaatcgacacg
 >ITS.chr10:34702088-34702309
 gccaaaagacactcccaacacccccccgcggggcgagggacgtggcgtctggccccccgcgccgcacggcgaggtgggccgaagcaggggctgccggcgaaccgcgccgggcgcagcacgtggtgggcgacatcaagttgttctcggtgcagcgtcccggcgcgcggccggccattcggccctaaggacccatcgagcgaccgagcttgccctcggaccgc
+(...)
 ```
