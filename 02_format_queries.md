@@ -29,6 +29,8 @@ $ cat rRNA.Zm-B73-REFERENCE-NAM-5.0_genomic.with_scaffolds.5.8S.gff | sed 's/;/\
 $ cat rRNA.Zm-B73-REFERENCE-NAM-5.0_genomic.with_scaffolds.28S.gff | sed 's/;/\t/g' |  awk '{OFS="\t"}{print $1,$4,$5,$17"-"$9,$6,$7 }' > rRNA.Zm-B73-REFERENCE-NAM-5.0_genomic.with_scaffolds.28S.bed
 $ cat rRNA.Zm-B73-REFERENCE-NAM-5.0_genomic.with_scaffolds.18S.gff | sed 's/;/\t/g' | awk '{OFS="\t"}{print $1,$4,$5,$17"-"$9,$6,$7 }'  > rRNA.Zm-B73-REFERENCE-NAM-5.0_genomic.with_scaffolds.18S.bed
 
+head -n 4 rRNA.Zm-B73-REFERENCE-NAM-5.0_genomic.with_scaffolds.5S.bed
+
 ##### expected output (rRNA.Zm-B73-REFERENCE-NAM-5.0_genomic.with_scaffolds.5S.bed)
 chr1	45918126	45918244	5S-ID=rna-XR_004855769.1	.	+
 chr1	78523371	78523489	5S-ID=rna-XR_004855692.1	.	+
