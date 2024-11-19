@@ -121,7 +121,7 @@ $ cat GCF_902167145.1_Zm-B73-REFERENCE-NAM-5.0_genomic.gff | sed \
  s/NC_001666.2/chrC/g' | grep -v 'chrC\|chrM' >  Zm-B73-REFERENCE-NAM-5.0_genomic.with_scaffolds.gff
 
 
-$ grep -v "#" ./references/Zm-B73-REFERENCE-NAM-5.0_genomic.with_scaffolds.gff | head -n 4
+$ grep -v "#" Zm-B73-REFERENCE-NAM-5.0_genomic.with_scaffolds.gff | head -n 4
 
 #### expected output
 chr1	RefSeq	region	1	308452471	.	+	.	ID=chr1:1..308452471;Dbxref=taxon:4577;Name=1;chromosome=1;cultivar=B73;gbkey=Src;genome=chromosome;mol_type=genomic DNA
