@@ -62,23 +62,23 @@ $ wget https://rth.dk/resources/rnp/SRPDB/rna/sequences/srprna_seqs.zip
 #### 2) Concatenate the maize sequences
 ```bash
 $ cat \
-Zea.mays._AY108846.fasta \
-Zea.mays._CB179518.fasta \
-Zea.mays._CD526459.fasta \
-Zea.mays._CF602412.fasta \
-Zea.mays._CF919998.fasta \
-Zea.mays._CF974802.fasta \
-Zea.mays._CK327537.fasta \
-Zea.mays._CK700970.fasta \
-Zea.mays._SDB-381124-1.fasta \
-Zea.mays._SDB-381124-2.fasta \
-Zea.mays._SDB-381124-3.fasta \
-Zea.mays._SDB-381124-4.fasta \
-Zea.mays._SDB-381124-5.fasta \
-Zea.mays._SDB-381124-6.fasta \
-Zea.mays._SDB-381124-7.fasta \
-Zea.mays._SDB-381124-8.fasta \
-Zea.mays._X14661.fasta > \
+fasta/Zea.mays._AY108846.fasta \
+fasta/Zea.mays._CB179518.fasta \
+fasta/Zea.mays._CD526459.fasta \
+fasta/Zea.mays._CF602412.fasta \
+fasta/Zea.mays._CF919998.fasta \
+fasta/Zea.mays._CF974802.fasta \
+fasta/Zea.mays._CK327537.fasta \
+fasta/Zea.mays._CK700970.fasta \
+fasta/Zea.mays._SDB-381124-1.fasta \
+fasta/Zea.mays._SDB-381124-2.fasta \
+fasta/Zea.mays._SDB-381124-3.fasta \
+fasta/Zea.mays._SDB-381124-4.fasta \
+fasta/Zea.mays._SDB-381124-5.fasta \
+fasta/Zea.mays._SDB-381124-6.fasta \
+fasta/Zea.mays._SDB-381124-7.fasta \
+fasta/Zea.mays._SDB-381124-8.fasta \
+fasta/Zea.mays._X14661.fasta > \
 SRP_RNA.fasta
 
 ### expected output
