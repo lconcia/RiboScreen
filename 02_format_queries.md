@@ -135,14 +135,14 @@ CCGAGUUCUGTAGCUAGAGCUUGTAACCCGAGCGGGGGCATTAAGGUGGCGCGGAUGCUUTGCGATGGUUUCTGGGCCUG
 # Input file name
 input_file=$1
 
-## fasta_lenght.sh
+## fasta_length.sh
 
 # Remove the file extension from the input file
 file_extension="${input_file##*.}"
 file_name_without_extension="${input_file%.*}"
 
 # Append the characters count to the filename
-new_file_name="${file_name_without_extension}.lenght.${file_extension}"
+new_file_name="${file_name_without_extension}.length.${file_extension}"
 
 # Temporary file to store the modified content
 # output_file=$new_file_name
@@ -169,13 +169,13 @@ done < "$input_file"
 
 * run the script 
 ```bash
-./fasta_lenght.sh SRP_RNA.lin.fasta
+./fasta_length.sh SRP_RNA.lin.fasta
 ```
 
 * check the output
 
 ```bash
-$ head -n 6 SRP_RNA.lin.lenght.fasta
+$ head -n 6 SRP_RNA.lin.length.fasta
 
 ### expected output
 >Zea.mays._AY108846:1-287
