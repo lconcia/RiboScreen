@@ -128,5 +128,6 @@ chr1	RefSeq	region	1	308452471	.	+	.	ID=chr1:1..308452471;Dbxref=taxon:4577;Name
 chr1	Gnomon	gene	34607	40208	.	+	.	ID=gene-LOC103644366;Dbxref=GeneID:103644366;Name=LOC103644366;gbkey=Gene;gene=LOC103644366;gene_biotype=protein_coding
 chr1	Gnomon	mRNA	34607	40208	.	+	.	ID=rna-XM_020544715.3;Parent=gene-LOC103644366;Dbxref=GeneID:103644366,GenBank:XM_020544715.3;Name=XM_020544715.3;gbkey=mRNA;gene=LOC103644366;model_evidence=Supporting evidence includes similarity to: 2 mRNAs%2C 1 EST%2C 1 Protein%2C 377 long SRA reads%2C and 100%25 coverage of the annotated genomic feature by RNAseq alignments%2C including 205 samples with support for all annotated introns;product=uncharacterized LOC103644366%2C transcript variant X1;transcript_id=XM_020544715.3
 chr1	Gnomon	exon	34607	35318	.	+	.	ID=exon-XM_020544715.3-1;Parent=rna-XM_020544715.3;Dbxref=GeneID:103644366,GenBank:XM_020544715.3;gbkey=mRNA;gene=LOC103644366;product=uncharacterized LOC103644366%2C transcript variant X1;transcript_id=XM_020544715.3
+(...)
 ```
 
