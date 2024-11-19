@@ -119,4 +119,14 @@ $ cat GCF_902167145.1_Zm-B73-REFERENCE-NAM-5.0_genomic.gff | sed \
  s/NC_050105.1/chr10/g; 
  s/NC_007982.1/chrM/g; 
  s/NC_001666.2/chrC/g' | grep -v 'chrC\|chrM' >  Zm-B73-REFERENCE-NAM-5.0_genomic.with_scaffolds.gff
+
+
+$ grep -v "#" ./references/Zm-B73-REFERENCE-NAM-5.0_genomic.with_scaffolds.gff | head -n 4
+
+#### expected output
+chr1	RefSeq	region	1	308452471	.	+	.	ID=chr1:1..308452471;Dbxref=taxon:4577;Name=1;chromosome=1;cultivar=B73;gbkey=Src;genome=chromosome;mol_type=genomic DNA
+chr1	Gnomon	gene	34607	40208	.	+	.	ID=gene-LOC103644366;Dbxref=GeneID:103644366;Name=LOC103644366;gbkey=Gene;gene=LOC103644366;gene_biotype=protein_coding
+chr1	Gnomon	mRNA	34607	40208	.	+	.	ID=rna-XM_020544715.3;Parent=gene-LOC103644366;Dbxref=GeneID:103644366,GenBank:XM_020544715.3;Name=XM_020544715.3;gbkey=mRNA;gene=LOC103644366;model_evidence=Supporting evidence includes similarity to: 2 mRNAs%2C 1 EST%2C 1 Protein%2C 377 long SRA reads%2C and 100%25 coverage of the annotated genomic feature by RNAseq alignments%2C including 205 samples with support for all annotated introns;product=uncharacterized LOC103644366%2C transcript variant X1;transcript_id=XM_020544715.3
+chr1	Gnomon	exon	34607	35318	.	+	.	ID=exon-XM_020544715.3-1;Parent=rna-XM_020544715.3;Dbxref=GeneID:103644366,GenBank:XM_020544715.3;gbkey=mRNA;gene=LOC103644366;product=uncharacterized LOC103644366%2C transcript variant X1;transcript_id=XM_020544715.3
 ```
+
