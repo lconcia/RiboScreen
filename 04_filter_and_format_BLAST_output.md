@@ -53,11 +53,11 @@ $ cat SRP.Zea_Mays_vs_AGPv5.querysize.above_90.tab | awk 'BEGIN{OFS="\t"}{print 
 Merge overlapping hits, keep the value of % identity.
 
 ```bash
-$ bedtools merge -c 4,4,4 -o max,median,count -i 28S.Zea_Mays_vs_AGPv5.querysize.above_90.bed > 28S.Zea_Mays_vs_AGPv5.querysize.above_90.merged.bed
-$ bedtools merge -c 4,4,4 -o max,median,count -i 18S.Zea_Mays_vs_AGPv5.querysize.above_90.bed > 18S.Zea_Mays_vs_AGPv5.querysize.above_90.merged.bed
-$ bedtools merge -c 4,4,4 -o max,median,count -i  5.8S.Zea_Mays_vs_AGPv5.querysize.above_90.bed > 5.8S.Zea_Mays_vs_AGPv5.querysize.above_90.merged.bed
-$ bedtools merge -c 4,4,4 -o max,median,count -i  5S.Zea_Mays_vs_AGPv5.querysize.above_90.bed >   5S.Zea_Mays_vs_AGPv5.querysize.above_90.merged.bed
-$ bedtools merge -c 4,4,4 -o max,median,count -i  SRP.Zea_Mays_vs_AGPv5.querysize.above_90.bed >   SRP.Zea_Mays_vs_AGPv5.querysize.above_90.merged.bed
+$ bedtools merge -c 4,4,4 -o max,median,count -i 28S.Zea_Mays_vs_AGPv5.querysize.above_90.bed | sort -k1,1 -k2,2n > 28S.Zea_Mays_vs_AGPv5.querysize.above_90.merged.bed
+$ bedtools merge -c 4,4,4 -o max,median,count -i 18S.Zea_Mays_vs_AGPv5.querysize.above_90.bed | sort -k1,1 -k2,2n > 18S.Zea_Mays_vs_AGPv5.querysize.above_90.merged.bed
+$ bedtools merge -c 4,4,4 -o max,median,count -i  5.8S.Zea_Mays_vs_AGPv5.querysize.above_90.bed | sort -k1,1 -k2,2n > 5.8S.Zea_Mays_vs_AGPv5.querysize.above_90.merged.bed
+$ bedtools merge -c 4,4,4 -o max,median,count -i  5S.Zea_Mays_vs_AGPv5.querysize.above_90.bed | sort -k1,1 -k2,2n >   5S.Zea_Mays_vs_AGPv5.querysize.above_90.merged.bed
+$ bedtools merge -c 4,4,4 -o max,median,count -i  SRP.Zea_Mays_vs_AGPv5.querysize.above_90.bed | sort -k1,1 -k2,2n >   SRP.Zea_Mays_vs_AGPv5.querysize.above_90.merged.bed
 
 
 $ head -n 3 28S.Zea_Mays_vs_AGPv5.querysize.above_90.merged.bed
