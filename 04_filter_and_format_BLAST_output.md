@@ -60,7 +60,7 @@ $ bedtools merge -c 4,4,4 -o max,median,count -i  5S.Zea_Mays_vs_AGPv5.querysize
 $ bedtools merge -c 4,4,4 -o max,median,count -i  SRP.Zea_Mays_vs_AGPv5.querysize.above_90.bed >   SRP.Zea_Mays_vs_AGPv5.querysize.above_90.merged.bed
 
 
-$ head -n 3 ./references/rDNA/28S.Zea_Mays_vs_AGPv5.querysize.above_90.merged.bed
+$ head -n 3 28S.Zea_Mays_vs_AGPv5.querysize.above_90.merged.bed
 
 ##### expected output
 chr10	34702309	34705691	100	99.7	498
