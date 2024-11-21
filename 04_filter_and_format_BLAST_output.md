@@ -71,14 +71,14 @@ chr6	16754714	16758096	100	99.94	498
 #### 6) Retrieve the genomic sequences in FASTA format
 
 ```bash
-$ bedtools getfasta -fi Zm-B73-REFERENCE-NAM-5.0_genomic.with_scaffolds.no_names.fasta Mt.vs_AGPv5.bed -fo Mt.vs_AGPv5.fasta
-$ bedtools getfasta -fi Zm-B73-REFERENCE-NAM-5.0_genomic.with_scaffolds.no_names.fasta Chl.vs_AGPv5.bed -fo Chl.vs_AGPv5.fasta
-$ bedtools getfasta -fi Zm-B73-REFERENCE-NAM-5.0_genomic.with_scaffolds.no_names.fasta tRNAs.vs_AGPv5.bed -fo tRNAs.vs_AGPv5.fasta
-$ bedtools getfasta -fi Zm-B73-REFERENCE-NAM-5.0_genomic.with_scaffolds.no_names.fasta 28S.Zea_Mays_vs_AGPv5.querysize.above_90.merged.bed -fo 28S.Zea_Mays_vs_AGPv5.querysize.above_90.merged.fasta
-$ bedtools getfasta -fi Zm-B73-REFERENCE-NAM-5.0_genomic.with_scaffolds.no_names.fasta 18S.Zea_Mays_vs_AGPv5.querysize.above_90.merged.bed -fo 18S.Zea_Mays_vs_AGPv5.querysize.above_90.merged.fasta
-$ bedtools getfasta -fi Zm-B73-REFERENCE-NAM-5.0_genomic.with_scaffolds.no_names.fasta 5.8S.Zea_Mays_vs_AGPv5.querysize.above_90.merged.bed -fo 5.8S.Zea_Mays_vs_AGPv5.querysize.above_90.merged.fasta
-$ bedtools getfasta -fi Zm-B73-REFERENCE-NAM-5.0_genomic.with_scaffolds.no_names.fasta 5S.Zea_Mays_vs_AGPv5.querysize.above_90.merged.bed -fo 5S.Zea_Mays_vs_AGPv5.querysize.above_90.merged.fasta
-$ bedtools getfasta -fi Zm-B73-REFERENCE-NAM-5.0_genomic.with_scaffolds.no_names.fasta SRP.Zea_Mays_vs_AGPv5.querysize.above_90.merged.bed  -fo SRP.Zea_Mays_vs_AGPv5.querysize.above_90.merged.fasta
+$ bedtools getfasta -fi Zm-B73-REFERENCE-NAM-5.0_genomic.with_scaffolds.no_names.fasta -bed Mt.vs_AGPv5.bed -fo Mt.vs_AGPv5.fasta
+$ bedtools getfasta -fi Zm-B73-REFERENCE-NAM-5.0_genomic.with_scaffolds.no_names.fasta -bed Chl.vs_AGPv5.bed -fo Chl.vs_AGPv5.fasta
+$ bedtools getfasta -fi Zm-B73-REFERENCE-NAM-5.0_genomic.with_scaffolds.no_names.fasta -bed tRNAs.vs_AGPv5.bed -fo tRNAs.vs_AGPv5.fasta
+$ bedtools getfasta -fi Zm-B73-REFERENCE-NAM-5.0_genomic.with_scaffolds.no_names.fasta -bed 28S.Zea_Mays_vs_AGPv5.querysize.above_90.merged.bed -fo 28S.Zea_Mays_vs_AGPv5.querysize.above_90.merged.fasta
+$ bedtools getfasta -fi Zm-B73-REFERENCE-NAM-5.0_genomic.with_scaffolds.no_names.fasta -bed 18S.Zea_Mays_vs_AGPv5.querysize.above_90.merged.bed -fo 18S.Zea_Mays_vs_AGPv5.querysize.above_90.merged.fasta
+$ bedtools getfasta -fi Zm-B73-REFERENCE-NAM-5.0_genomic.with_scaffolds.no_names.fasta -bed 5.8S.Zea_Mays_vs_AGPv5.querysize.above_90.merged.bed -fo 5.8S.Zea_Mays_vs_AGPv5.querysize.above_90.merged.fasta
+$ bedtools getfasta -fi Zm-B73-REFERENCE-NAM-5.0_genomic.with_scaffolds.no_names.fasta -bed 5S.Zea_Mays_vs_AGPv5.querysize.above_90.merged.bed -fo 5S.Zea_Mays_vs_AGPv5.querysize.above_90.merged.fasta
+$ bedtools getfasta -fi Zm-B73-REFERENCE-NAM-5.0_genomic.with_scaffolds.no_names.fasta -bed SRP.Zea_Mays_vs_AGPv5.querysize.above_90.merged.bed  -fo SRP.Zea_Mays_vs_AGPv5.querysize.above_90.merged.fasta
 ```
 
 #### 7) Add the type of contamint to the fasta header to distinguish them
@@ -87,8 +87,8 @@ $ bedtools getfasta -fi Zm-B73-REFERENCE-NAM-5.0_genomic.with_scaffolds.no_names
 $ sed -i.bkp 's/>/>Mt./g'   Mt.vs_AGPv5.fasta
 $ sed -i.bkp 's/>/>Chl./g'  Chl.vs_AGPv5.fasta
 $ sed -i.bkp 's/>/>tRNA./g' tRNAs.vs_AGPv5.merged.fasta
-$ sed -i.bkp 's/>/>18S./g'  28S.Zea_Mays_vs_AGPv5.querysize.above_90.merged.fasta
-$ sed -i.bkp 's/>/>28S./g'  18S.Zea_Mays_vs_AGPv5.querysize.above_90.merged.fasta
+$ sed -i.bkp 's/>/>28S./g'  28S.Zea_Mays_vs_AGPv5.querysize.above_90.merged.fasta
+$ sed -i.bkp 's/>/>18S./g'  18S.Zea_Mays_vs_AGPv5.querysize.above_90.merged.fasta
 $ sed -i.bkp 's/>/>5.8S./g' 5.8S.Zea_Mays_vs_AGPv5.querysize.above_90.merged.fasta
 $ sed -i.bkp 's/>/>5S./g'   5S.Zea_Mays_vs_AGPv5.querysize.above_90.merged.fasta
 $ sed -i.bkp 's/>/>SRP./g'  SRP.Zea_Mays_vs_AGPv5.querysize.above_90.merged.fasta
