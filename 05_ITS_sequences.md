@@ -21,7 +21,7 @@ sort -k1,1 -k2,2n > rRNA.Zm-B73-REFERENCE-NAM-5.0_genomic.with_scaffolds.5.8S+18
 
 $ bedtools merge -d 250 -c 4 -o collapse \
 -i rRNA.Zm-B73-REFERENCE-NAM-5.0_genomic.with_scaffolds.5.8S+18S+28S.bed | \
-sort -k1,1 -k2,2n > rRNA.Zm-B73-REFERENCE-NAM-5.0_genomic.with_scaffolds.rDNA_units.bed
+sort -f -k1,1 -k2,2n > rRNA.Zm-B73-REFERENCE-NAM-5.0_genomic.with_scaffolds.rDNA_units.bed
 
 $ head -n 4 rRNA.Zm-B73-REFERENCE-NAM-5.0_genomic.with_scaffolds.rDNA_units.bed
 
